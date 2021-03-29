@@ -68,6 +68,9 @@
     <Compile Include="Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs" />
     <None Include="Assets\Plugins\GitHub\Editor\credits.txt" />
     <None Include="Assets\Plugins\GitHub\Editor\eula.txt" />
+    <Reference Include="Cinemachine">
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
@@ -83,17 +86,14 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.33f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
