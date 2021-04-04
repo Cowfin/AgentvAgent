@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 1
-  lastUpdatedAtString: 2021-03-29T15:34:49.692+13:00
-  initializedAtString: 2021-03-29T15:34:49.692+13:00
+  lastUpdatedAtString: 2021-03-31T10:25:36.681+13:00
+  initializedAtString: 2021-03-31T10:25:36.681+13:00
   currentGitRemote:
     name: origin
     url: https://github.com/Cowfin/AgentvAgent.git
@@ -24,14 +24,14 @@ MonoBehaviour:
     function: 0
     token: 
   currentGitBranch:
-    name: Kelvin
-    tracking: origin/Kelvin
+    name: main
+    tracking: origin/main
   currentConfigBranch:
-    name: Kelvin
+    name: main
     remote:
       name: origin
       url: https://github.com/Cowfin/AgentvAgent.git
-    trackingBranch: Kelvin
+    trackingBranch: main
   currentConfigRemote:
     name: origin
     url: https://github.com/Cowfin/AgentvAgent.git
