@@ -7,7 +7,7 @@ public class TaskInteraction : MonoBehaviour
 {
     [SerializeField] Image taskPopup;
 
-    float interactRange = 3f;
+    float interactRange = 10f;
 
     int taskLayerMask;
 
@@ -24,7 +24,6 @@ public class TaskInteraction : MonoBehaviour
         cam = gameController.GetComponent<Camera>();
 
         taskLayerMask = LayerMask.GetMask("Task");
-        DisableTaskPopUp();
     }
 
     void Update()
@@ -37,13 +36,14 @@ public class TaskInteraction : MonoBehaviour
             EnableTaskPopUp();
             if (Input.GetKeyDown(KeyCode.E))
             {
+                Debug.Log("Pressed E on task");
                 int id = hit.transform.GetComponent<TaskID>().taskID;
-                taskTimer.timeRemaining = database.tasks[id].completeTime;
-                taskTimer.timerRunning = true;
+                //taskTimer.timeRemaining = database.tasks[id].completeTime;
+                //taskTimer.timerRunning = true;
             }
             else
             {
-                taskTimer.timerRunning = false;
+                //taskTimer.timerRunning = false;
             }
         }
         else
