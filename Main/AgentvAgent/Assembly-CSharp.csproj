@@ -64,11 +64,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Bin\TaskInteraction.cs" />
+    <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
     <Compile Include="Assets\Scripts\Task.cs" />
     <Compile Include="Assets\Scripts\TaskComplete.cs" />
     <Compile Include="Assets\Scripts\TaskDatabase.cs" />
     <Compile Include="Assets\Scripts\TaskID.cs" />
-    <Compile Include="Assets\Scripts\TaskInteraction.cs" />
     <Compile Include="Assets\Scripts\TaskTimer.cs" />
     <Compile Include="Assets\Scripts\ThirdPersonMovement.cs" />
     <Reference Include="UnityEngine">

@@ -187,8 +187,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54707733}
-  m_LocalRotation: {x: 0.073801935, y: 0.000000017687567, z: -0.0000000013089462,
-    w: 0.9972729}
+  m_LocalRotation: {x: 0.073801935, y: -0.000000017687563, z: 0.000000001308946, w: 0.9972729}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -557,7 +556,7 @@ GameObject:
   - component: {fileID: 655095549}
   m_Layer: 8
   m_Name: TestTask1
-  m_TagString: Untagged
+  m_TagString: Short Tasks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -647,7 +646,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 1}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &655095549
 MonoBehaviour:
@@ -661,7 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230a4f5f5f5154a43ba3f886cb4561b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskID: 0
+  taskID: 1
 --- !u!1 &703648757
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +767,7 @@ GameObject:
   - component: {fileID: 1041289938}
   - component: {fileID: 1041289937}
   - component: {fileID: 1041289936}
+  - component: {fileID: 1041289939}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -782,7 +782,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041289934}
-  m_LocalRotation: {x: 0.07705444, y: 0.000000030415105, z: -0.0000000023506075, w: 0.9970269}
+  m_LocalRotation: {x: 0.07705444, y: -0.000000030415105, z: 0.0000000023506075, w: 0.9970269}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -874,6 +874,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1041289939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041289934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec27673889b8e7c49bc58132944a0580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskPopup: {fileID: 1156529874}
+  cam: {fileID: 1041289938}
 --- !u!1 &1093149632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,7 +1340,7 @@ GameObject:
   - component: {fileID: 1379806197}
   m_Layer: 8
   m_Name: TestTask2
-  m_TagString: Untagged
+  m_TagString: Long Tasks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1342,7 +1356,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1379806193
 MeshRenderer:
@@ -1417,7 +1431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230a4f5f5f5154a43ba3f886cb4561b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskID: 1
+  taskID: 2
 --- !u!1 &1490198285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,12 +1556,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tasks:
   - taskID: 0
-    name: Plant the microphone
-    taskObject: {fileID: 655095543}
-    completeTime: 5
+    name: Null
+    taskObject: {fileID: 0}
+    completeTime: 0
   - taskID: 1
     name: Crack the safe
     taskObject: {fileID: 1379806191}
+    completeTime: 10
+  - taskID: 2
+    name: Spike the drink
+    taskObject: {fileID: 655095543}
     completeTime: 5
 --- !u!4 &1524526102
 Transform:
@@ -1575,7 +1593,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb56c0459c9730f44941734d492ad5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  completed: 00000000
+  tasksCompleted: 0000000000000000
+  totalTasks:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1687181949
 GameObject:
   m_ObjectHideFlags: 3
@@ -2197,7 +2218,6 @@ GameObject:
   - component: {fileID: 1963608481}
   - component: {fileID: 1963608480}
   - component: {fileID: 1963608479}
-  - component: {fileID: 1963608484}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2316,19 +2336,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963608477}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1963608484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963608477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed0f0d47eef9254aa2a8fd4240e93e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskPopup: {fileID: 1156529874}
 --- !u!1 &2027834751
 GameObject:
   m_ObjectHideFlags: 3

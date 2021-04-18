@@ -15,7 +15,6 @@ public class TaskInteraction : MonoBehaviour
 
     GameObject gameController;
     TaskDatabase database;
-    TaskTimer taskTimer;
 
     void Start()
     {
@@ -23,7 +22,7 @@ public class TaskInteraction : MonoBehaviour
         database = gameController.GetComponent<TaskDatabase>();
         cam = gameController.GetComponent<Camera>();
 
-        taskLayerMask = LayerMask.GetMask("Task");
+        taskLayerMask = LayerMask.GetMask("TaskLayer");
     }
 
     void Update()
@@ -38,13 +37,9 @@ public class TaskInteraction : MonoBehaviour
             {
                 Debug.Log("Pressed E on task");
                 int id = hit.transform.GetComponent<TaskID>().taskID;
-                //taskTimer.timeRemaining = database.tasks[id].completeTime;
-                //taskTimer.timerRunning = true;
+
             }
-            else
-            {
-                //taskTimer.timerRunning = false;
-            }
+
         }
         else
         {
