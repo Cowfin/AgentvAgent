@@ -275,6 +275,18 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.CecilX">
+      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.CecilX.Mdb">
+      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.CecilX.Pdb">
+      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.CecilX.Rocks">
+      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="GitHub.Api.45">
       <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Plugins/GitHub/Editor/GitHub.Api.45.dll</HintPath>
     </Reference>
@@ -298,18 +310,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.CecilX">
-      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.CecilX.Mdb">
-      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.CecilX.Pdb">
-      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.CecilX.Rocks">
-      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.23f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

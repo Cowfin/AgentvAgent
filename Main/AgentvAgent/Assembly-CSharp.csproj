@@ -304,15 +304,6 @@
     <Reference Include="UnityEditor">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.23f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.CecilX">
       <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
     </Reference>
@@ -324,6 +315,15 @@
     </Reference>
     <Reference Include="Mono.CecilX.Rocks">
       <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Editor">
+      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.23f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
