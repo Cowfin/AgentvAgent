@@ -20,6 +20,13 @@ public class PlayerInteraction : MonoBehaviour
     //TestCricle testCricle;
 
 
+    //Image img;
+
+    float totalTime = 2;
+    bool timerStatus;
+    float timerTime;
+
+
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController");
@@ -37,10 +44,12 @@ public class PlayerInteraction : MonoBehaviour
         if (Physics.Raycast(ray, out hit, interactRange, taskLayerMask))
         {
             EnableTaskPopUp();
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKey(KeyCode.E))
             {
                 Debug.Log("Pressed E on task");
                 hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
+                Debug.Log("Time got: " + database.tasks[hitTaskID].completeTime);
+                timerOn();
                 /*testCricle.setImg(interactCircle);
                 testCricle.setTime(database.tasks[hitTaskID].completeTime);
                 testCricle.timerOn();*/
@@ -57,19 +66,50 @@ public class PlayerInteraction : MonoBehaviour
         } else
         {
             DisableTaskPopUp();
+            timerOff();
         }
 
-      
+
+        if (timerStatus)
+        {
+            timerTime += Time.deltaTime;
+            interactCircle.fillAmount = timerTime / totalTime;
+        }
+
     }
 
 
     void EnableTaskPopUp()
     {
         taskPopup.gameObject.SetActive(true);
+        interactCircle.gameObject.SetActive(true);
     }
 
     void DisableTaskPopUp()
     {
         taskPopup.gameObject.SetActive(false);
+        interactCircle.gameObject.SetActive(false);
+
+    }
+
+
+
+    //testing circle
+
+    public void timerOn()
+    {
+        timerStatus = true;
+    }
+
+    public void timerOff()
+    {
+        timerStatus = false;
+        timerTime = 0;
+        interactCircle.fillAmount = 0;
+    }
+
+    public void setTime(float t)
+    {
+        totalTime = t;
     }
 }
