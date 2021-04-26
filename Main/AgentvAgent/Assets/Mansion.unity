@@ -187,7 +187,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54707733}
-  m_LocalRotation: {x: 0.073801935, y: -0.000000017687563, z: 0.000000001308946, w: 0.9972729}
+  m_LocalRotation: {x: 0.073801935, y: 0.000000017687567, z: -0.0000000013089462,
+    w: 0.9972729}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -556,7 +557,7 @@ GameObject:
   - component: {fileID: 655095549}
   m_Layer: 8
   m_Name: TestTask1
-  m_TagString: Short Tasks
+  m_TagString: TasksTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -782,7 +783,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041289934}
-  m_LocalRotation: {x: 0.07705444, y: -0.000000030415105, z: 0.0000000023506075, w: 0.9970269}
+  m_LocalRotation: {x: 0.07705444, y: 0.000000030415105, z: -0.0000000023506075, w: 0.9970269}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -887,6 +888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskPopup: {fileID: 1156529874}
+  interactCircle: {fileID: 1897756018}
   cam: {fileID: 1041289938}
 --- !u!1 &1093149632
 GameObject:
@@ -1340,7 +1342,7 @@ GameObject:
   - component: {fileID: 1379806197}
   m_Layer: 8
   m_Name: TestTask2
-  m_TagString: Long Tasks
+  m_TagString: TasksTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1561,11 +1563,11 @@ MonoBehaviour:
     completeTime: 0
   - taskID: 1
     name: Crack the safe
-    taskObject: {fileID: 1379806191}
-    completeTime: 10
+    taskObject: {fileID: 655095543}
+    completeTime: 5
   - taskID: 2
     name: Spike the drink
-    taskObject: {fileID: 655095543}
+    taskObject: {fileID: 1379806191}
     completeTime: 5
 --- !u!4 &1524526102
 Transform:
@@ -1593,7 +1595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb56c0459c9730f44941734d492ad5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksCompleted: 0000000000000000
+  tasksCompleted: 000000000000000000000000
   totalTasks:
   - {fileID: 0}
   - {fileID: 0}
@@ -2104,6 +2106,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892588236}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1897756016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897756017}
+  - component: {fileID: 1897756019}
+  - component: {fileID: 1897756018}
+  m_Layer: 5
+  m_Name: InteractCricle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1897756017
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897756016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1933816997}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1897756018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897756016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b492b13e5ac08c548ae5b8dcede180ca, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 2
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1897756019
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897756016}
+  m_CullTransparentMesh: 0
 --- !u!1 &1933816993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,7 +2193,7 @@ GameObject:
   - component: {fileID: 1933816995}
   - component: {fileID: 1933816994}
   m_Layer: 5
-  m_Name: TaskPopUp
+  m_Name: User Interface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2196,6 +2272,7 @@ RectTransform:
   m_Children:
   - {fileID: 1156529873}
   - {fileID: 1350359377}
+  - {fileID: 1897756017}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2256,7 +2333,6 @@ MonoBehaviour:
   controller: {fileID: 1963608480}
   cam: {fileID: 1041289935}
   speed: 6
-  turnSmoothTime: 0.1
 --- !u!143 &1963608480
 CharacterController:
   m_ObjectHideFlags: 0

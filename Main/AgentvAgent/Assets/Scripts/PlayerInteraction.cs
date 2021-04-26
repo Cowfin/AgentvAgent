@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] Image taskPopup;
+    [SerializeField] Image interactCircle;
 
     float interactRange = 10f;
     int taskLayerMask;
@@ -14,8 +15,10 @@ public class PlayerInteraction : MonoBehaviour
     GameObject gameController;
     TaskDatabase database;
 
-    Task hitTask;
-    TaskTimer taskTimer;
+    int hitTaskID;
+    //TaskTimer taskTimer;
+    //TestCricle testCricle;
+
 
     void Start()
     {
@@ -37,13 +40,26 @@ public class PlayerInteraction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Pressed E on task");
-                hitTask = hit.transform.GetComponent<Task>();
-                hitTask.completeTime;
+                hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
+                /*testCricle.setImg(interactCircle);
+                testCricle.setTime(database.tasks[hitTaskID].completeTime);
+                testCricle.timerOn();*/
+
+               /* if (database.tasks[hitTaskID].taskID == 1)
+                {
+                    taskTimer.startTimer();
+                }
+                //taskTimer.setTime(database.tasks[hitTaskID].completeTime);
+                //taskTimer.startTimer();*/
+                
             }
+
         } else
         {
             DisableTaskPopUp();
         }
+
+      
     }
 
 
