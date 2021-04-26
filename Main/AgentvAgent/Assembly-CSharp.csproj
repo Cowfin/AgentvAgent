@@ -64,14 +64,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Bin\CompletedTasks.cs" />
     <Compile Include="Assets\Scripts\Bin\TaskInteraction.cs" />
+    <Compile Include="Assets\Scripts\Bin\TaskTimer.cs" />
+    <Compile Include="Assets\Scripts\Bin\TestCricle.cs" />
+    <Compile Include="Assets\Scripts\GControl.cs" />
     <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
     <Compile Include="Assets\Scripts\Task.cs" />
     <Compile Include="Assets\Scripts\TaskComplete.cs" />
     <Compile Include="Assets\Scripts\TaskDatabase.cs" />
     <Compile Include="Assets\Scripts\TaskID.cs" />
-    <Compile Include="Assets\Scripts\TaskTimer.cs" />
-    <Compile Include="Assets\Scripts\TestCricle.cs" />
     <Compile Include="Assets\Scripts\ThirdPersonMovement.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.23f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

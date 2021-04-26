@@ -7,34 +7,29 @@ public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] Image taskPopup;
     [SerializeField] Image interactCircle;
+    [SerializeField] Camera cam;
 
     float interactRange = 10f;
     int taskLayerMask;
-    [SerializeField] Camera cam;
 
     GameObject gameController;
     TaskDatabase database;
+    GControl gControl;
+    
 
     int hitTaskID;
-    //TaskTimer taskTimer;
-    //TestCricle testCricle;
 
-
-    //Image img;
-
-    float totalTime = 2;
+    float totalTime, timerTime, circleFill;
     bool timerStatus;
-    float timerTime;
-
 
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController");
+        gControl = GameObject.FindGameObjectWithTag("GameController").GetComponent<GControl>();
         database = gameController.GetComponent<TaskDatabase>();
 
         taskLayerMask = LayerMask.GetMask("TaskLayer");
     }
-
 
     void Update()
     {
@@ -49,31 +44,27 @@ public class PlayerInteraction : MonoBehaviour
                 Debug.Log("Pressed E on task");
                 hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
                 Debug.Log("Time got: " + database.tasks[hitTaskID].completeTime);
-                timerOn();
-                /*testCricle.setImg(interactCircle);
-                testCricle.setTime(database.tasks[hitTaskID].completeTime);
-                testCricle.timerOn();*/
-
-               /* if (database.tasks[hitTaskID].taskID == 1)
-                {
-                    taskTimer.startTimer();
-                }
-                //taskTimer.setTime(database.tasks[hitTaskID].completeTime);
-                //taskTimer.startTimer();*/
-                
+                totalTime = database.tasks[hitTaskID].completeTime;
+                TimerOn();
             }
-
         } else
         {
             DisableTaskPopUp();
-            timerOff();
+            TimerOff();
         }
 
 
         if (timerStatus)
         {
             timerTime += Time.deltaTime;
-            interactCircle.fillAmount = timerTime / totalTime;
+            circleFill = timerTime / totalTime;
+            interactCircle.fillAmount = circleFill;
+            if (circleFill >= 1)
+            {
+                DisableCircle();
+                circleFill = 0;
+                gControl.AddTaskNumber();
+            }
         }
 
     }
@@ -89,26 +80,27 @@ public class PlayerInteraction : MonoBehaviour
     {
         taskPopup.gameObject.SetActive(false);
         interactCircle.gameObject.SetActive(false);
-
     }
 
+    void DisableCircle()
+    {
+        interactCircle.gameObject.SetActive(false);
+        TimerOff();
+    }
 
-
-    //testing circle
-
-    public void timerOn()
+    public void TimerOn()
     {
         timerStatus = true;
     }
 
-    public void timerOff()
+    public void TimerOff()
     {
         timerStatus = false;
         timerTime = 0;
         interactCircle.fillAmount = 0;
     }
 
-    public void setTime(float t)
+    public void SetTime(float t)
     {
         totalTime = t;
     }
