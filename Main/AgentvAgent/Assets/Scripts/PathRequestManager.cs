@@ -7,7 +7,7 @@ using System.Threading;
 public class PathRequestManager : MonoBehaviour
 {
     public bool drawPathGizmos;
-    public GatheringSpot[] gatheringSpots;
+    public List<GatheringSpot> gatheringSpots;
 
     Queue<PathResult> results = new Queue<PathResult>();
     static PathRequestManager instance;
@@ -42,7 +42,7 @@ public class PathRequestManager : MonoBehaviour
         return instance.drawPathGizmos;
     }
 
-    public static GatheringSpot[] RequestGatheringSpots()
+    public static List<GatheringSpot> RequestGatheringSpots()
     {
         return instance.gatheringSpots;
     }

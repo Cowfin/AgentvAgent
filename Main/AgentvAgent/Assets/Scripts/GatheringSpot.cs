@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GatheringSpot
+public class GatheringSpot : MonoBehaviour
 {
-    Spot[] spots;
+    public Spot[] spots;
 
-    bool checkStatus()
+    public bool checkStatus()
     {
         bool full = true;
         foreach(Spot s in spots)
@@ -19,7 +19,7 @@ public class GatheringSpot
         return full;
     }
 
-    Vector3 assignSpot()
+    public Spot assignSpot()
     {
         Spot spot = null;
         foreach (Spot s in spots)
@@ -30,6 +30,6 @@ public class GatheringSpot
             }
         }
         spot.changeOccupation();
-        return spot.location;
+        return spot;
     }
 }

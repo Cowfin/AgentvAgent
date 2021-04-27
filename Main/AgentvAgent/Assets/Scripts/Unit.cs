@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    GatheringSpot[] gatheringSpots;
-    GatheringSpot target;
+    List<GatheringSpot> gatheringSpots;
+    GatheringSpot spot;
+    Spot target;
     bool drawPathGizmos;
     float speed = 1f;
     float turnSpeed = 5f;
@@ -15,12 +16,17 @@ public class Unit : MonoBehaviour
     int targetIndex;
     Node currentNode;
     bool changingPath;
+    bool walking;
+    float waitTime;
     //Have each unit store the node it is currently standing on and check when it moves from it to update the grid
     void Start()
     {
         drawPathGizmos = PathRequestManager.DrawPathGizmos();
         gatheringSpots = PathRequestManager.RequestGatheringSpots();
-        target = gatheringSpots[Random.Range(0, gatheringSpots.Length - 1)];
+
+        waitTime = Random.Range(1f, 2f);
+        target = FindSpot();
+        
         PathRequestManager.RequestWorldPosToNode(new WorldPosToNode(transform.position, OnNodeFound));
         if (currentNode != null)
         {
@@ -28,19 +34,51 @@ public class Unit : MonoBehaviour
         }
         if (target != null)
         {
+            walking = true;
             PathRequestManager.UpdateGrid(new GridUpdate(currentNode, -weight));
-            PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
+            PathRequestManager.RequestPath(new PathRequest(transform.position, target.location, OnPathFound));
         }
     }
 
-    GatheringSpot FindGatheringSpot()
+    void Update()
     {
-        GatheringSpot[] availableGatherings;
-        foreach (GatheringSpot g in gatheringSpots)
+        if (walking == false)
         {
-            //FIX ME : NEED TO GRAB ORIGINAL GATHERING SPOTS, NOT COPY
-            if(g.)
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                target = FindSpot();
+                if (target != null)
+                {
+                    walking = true;
+                    waitTime = Random.Range(1f, 2f);
+                    PathRequestManager.UpdateGrid(new GridUpdate(currentNode, -weight));
+                    PathRequestManager.RequestPath(new PathRequest(transform.position, target.location, OnPathFound));
+                }
+            }
         }
+    }
+
+    Spot FindSpot()
+    {
+        List<GatheringSpot> availableGatherings = new List<GatheringSpot>();
+        for (int i = 0; i < gatheringSpots.Capacity; i++)
+        {
+            if (gatheringSpots[i].checkStatus() == false)
+            {
+                availableGatherings.Add(gatheringSpots[i]);
+            }
+        }
+        Spot targetSpot = null;
+        for (int j = 0; j < availableGatherings.Capacity; j++)
+        {
+            if (availableGatherings[j].checkStatus() == false)
+            {
+                targetSpot = availableGatherings[j].assignSpot();
+                break;
+            }
+        }
+        return targetSpot;
     }
 
     public void OnNodeFound(Node node, bool conversionSuccessful)
@@ -88,6 +126,7 @@ public class Unit : MonoBehaviour
                 {
                     if (targetIndex + i >= path.Length)
                     {
+                        walking = false;
                         break;
                     }
                     //int gridWeight = PathRequestManager.requestNode(currentNode).movementWeight;
@@ -96,7 +135,7 @@ public class Unit : MonoBehaviour
                         changingPath = true;
                         
                         PathRequestManager.UpdateGrid(new GridUpdate(oldNode, -weight));
-                        PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
+                        PathRequestManager.RequestPath(new PathRequest(transform.position, target.location, OnPathFound));
                         break;
                     }
                 }
