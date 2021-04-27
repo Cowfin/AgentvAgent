@@ -667,7 +667,7 @@ namespace Mirror
                 try
                 {
                     // user implemented startup
-                    comp.OnStartClient();
+                    comp.agentNetworkInitiated();
                 }
                 catch (Exception e)
                 {
@@ -687,7 +687,7 @@ namespace Mirror
                 //    one exception doesn't stop all the other Start() calls!
                 try
                 {
-                    comp.OnStopClient();
+                    comp.agentNetworkHalt();
                 }
                 catch (Exception e)
                 {
@@ -1036,7 +1036,7 @@ namespace Mirror
         }
 
         /// <summary>Assign control of an object to a client via the client's NetworkConnection.</summary>
-        // This causes hasAuthority to be set on the client that owns the object,
+        // This causes successInConnection to be set on the client that owns the object,
         // and NetworkBehaviour.OnStartAuthority will be called on that client.
         // This object then will be in the NetworkConnection.clientOwnedObjects
         // list for the connection.

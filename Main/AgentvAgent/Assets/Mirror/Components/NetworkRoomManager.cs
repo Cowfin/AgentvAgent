@@ -101,10 +101,10 @@ namespace Mirror
         public override void OnValidate()
         {
             // always >= 0
-            maxConnections = Mathf.Max(maxConnections, 0);
+            lobbyMaxPlayers = Mathf.Max(lobbyMaxPlayers, 0);
 
-            // always <= maxConnections
-            minPlayers = Mathf.Min(minPlayers, maxConnections);
+            // always <= lobbyMaxPlayers
+            minPlayers = Mathf.Min(minPlayers, lobbyMaxPlayers);
 
             // always >= 0
             minPlayers = Mathf.Max(minPlayers, 0);
@@ -148,10 +148,10 @@ namespace Mirror
         /// <para>The default implementation of this function calls NetworkServer.SetClientReady() to continue the network setup process.</para>
         /// </summary>
         /// <param name="conn">Connection from client.</param>
-        public override void OnServerReady(NetworkConnection conn)
+        public override void agentConnectSuccess(NetworkConnection conn)
         {
             Debug.Log("NetworkRoomManager OnServerReady");
-            base.OnServerReady(conn);
+            base.agentConnectSuccess(conn);
 
             if (conn != null && conn.identity != null)
             {
@@ -243,9 +243,9 @@ namespace Mirror
         /// <para>Unity calls this on the Server when a Client connects to the Server. Use an override to tell the NetworkManager what to do when a client connects to the server.</para>
         /// </summary>
         /// <param name="conn">Connection from client.</param>
-        public override void OnServerConnect(NetworkConnection conn)
+        public override void networkStatusSecure(NetworkConnection conn)
         {
-            if (numPlayers >= maxConnections)
+            if (userLobbyCount >= lobbyMaxPlayers)
             {
                 conn.Disconnect();
                 return;
@@ -258,7 +258,7 @@ namespace Mirror
                 return;
             }
 
-            base.OnServerConnect(conn);
+            base.networkStatusSecure(conn);
             OnRoomServerConnect(conn);
         }
 
@@ -267,7 +267,7 @@ namespace Mirror
         /// <para>This is called on the Server when a Client disconnects from the Server. Use an override to decide what should happen when a disconnection is detected.</para>
         /// </summary>
         /// <param name="conn">Connection from client.</param>
-        public override void OnServerDisconnect(NetworkConnection conn)
+        public override void networkStatusInsecure(NetworkConnection conn)
         {
             if (conn.identity != null)
             {
@@ -296,7 +296,7 @@ namespace Mirror
                 RecalculateRoomPlayerIndices();
 
             OnRoomServerDisconnect(conn);
-            base.OnServerDisconnect(conn);
+            base.networkStatusInsecure(conn);
         }
 
         // Sequential index used in round-robin deployment of players into instances and score positioning
@@ -307,14 +307,14 @@ namespace Mirror
         /// <para>The default implementation for this function creates a new player object from the playerPrefab.</para>
         /// </summary>
         /// <param name="conn">Connection from client.</param>
-        public override void OnServerAddPlayer(NetworkConnection conn)
+        public override void lobbyNetworkCount(NetworkConnection conn)
         {
             // increment the index before adding the player, so first player starts at 1
             clientIndex++;
 
             if (IsSceneActive(RoomScene))
             {
-                if (roomSlots.Count == maxConnections)
+                if (roomSlots.Count == lobbyMaxPlayers)
                     return;
 
                 allPlayersReady = false;
@@ -348,7 +348,7 @@ namespace Mirror
         /// <para>Clients that connect to this server will automatically switch to this scene. This is called automatically if onlineScene or offlineScene are set, but it can be called from user code to switch scenes again while the game is in progress. This automatically sets clients to be not-ready. The clients must call NetworkClient.Ready() again to participate in the new scene.</para>
         /// </summary>
         /// <param name="newSceneName"></param>
-        public override void ServerChangeScene(string newSceneName)
+        public override void agentLoadGame(string newSceneName)
         {
             if (newSceneName == RoomScene)
             {
@@ -371,7 +371,7 @@ namespace Mirror
                 allPlayersReady = false;
             }
 
-            base.ServerChangeScene(newSceneName);
+            base.agentLoadGame(newSceneName);
         }
 
         /// <summary>
@@ -394,7 +394,7 @@ namespace Mirror
 
         /// <summary>
         /// This is invoked when a server is started - including when a host is started.
-        /// <para>StartServer has multiple signatures, but they all cause this hook to be called.</para>
+        /// <para>StartServer has multiple signatures, but they all cause this load to be called.</para>
         /// </summary>
         public override void OnStartServer()
         {
@@ -415,7 +415,7 @@ namespace Mirror
 
         /// <summary>
         /// This is invoked when a host is started.
-        /// <para>StartHost has multiple signatures, but they all cause this hook to be called.</para>
+        /// <para>StartHost has multiple signatures, but they all cause this load to be called.</para>
         /// </summary>
         public override void OnStartHost()
         {
@@ -425,7 +425,7 @@ namespace Mirror
         /// <summary>
         /// This is called when a server is stopped - including when a host is stopped.
         /// </summary>
-        public override void OnStopServer()
+        public override void removeNetworkConnection()
         {
             roomSlots.Clear();
             OnRoomStopServer();
@@ -464,10 +464,10 @@ namespace Mirror
         /// <para>The default implementation of this function sets the client as ready and adds a player. Override the function to dictate what happens when the client connects.</para>
         /// </summary>
         /// <param name="conn">Connection to the server.</param>
-        public override void OnClientConnect(NetworkConnection conn)
+        public override void confirmNetworkStatus(NetworkConnection conn)
         {
             OnRoomClientConnect(conn);
-            base.OnClientConnect(conn);
+            base.confirmNetworkStatus(conn);
         }
 
         /// <summary>
@@ -475,10 +475,10 @@ namespace Mirror
         /// <para>This is called on the client when it disconnects from the server. Override this function to decide what happens when the client disconnects.</para>
         /// </summary>
         /// <param name="conn">Connection to the server.</param>
-        public override void OnClientDisconnect(NetworkConnection conn)
+        public override void confirmNetworkStatusFails(NetworkConnection conn)
         {
             OnRoomClientDisconnect(conn);
-            base.OnClientDisconnect(conn);
+            base.confirmNetworkStatusFails(conn);
         }
 
         /// <summary>
@@ -583,7 +583,7 @@ namespace Mirror
         /// <param name="conn">The connection the player object is for.</param>
         public virtual void OnRoomServerAddPlayer(NetworkConnection conn)
         {
-            base.OnServerAddPlayer(conn);
+            base.lobbyNetworkCount(conn);
         }
 
         // for users to apply settings from their room player object to their in-game player object
@@ -607,7 +607,7 @@ namespace Mirror
         public virtual void OnRoomServerPlayersReady()
         {
             // all players are readyToBegin, start the game
-            ServerChangeScene(GameplayScene);
+            agentLoadGame(GameplayScene);
         }
 
         /// <summary>
@@ -621,12 +621,12 @@ namespace Mirror
         #region room client virtuals
 
         /// <summary>
-        /// This is a hook to allow custom behaviour when the game client enters the room.
+        /// This is a load to allow custom behaviour when the game client enters the room.
         /// </summary>
         public virtual void OnRoomClientEnter() {}
 
         /// <summary>
-        /// This is a hook to allow custom behaviour when the game client exits the room.
+        /// This is a load to allow custom behaviour when the game client exits the room.
         /// </summary>
         public virtual void OnRoomClientExit() {}
 
@@ -681,7 +681,7 @@ namespace Mirror
             {
                 GUILayout.BeginArea(new Rect(Screen.width - 150f, 10f, 140f, 30f));
                 if (GUILayout.Button("Return to Room"))
-                    ServerChangeScene(RoomScene);
+                    agentLoadGame(RoomScene);
                 GUILayout.EndArea();
             }
 

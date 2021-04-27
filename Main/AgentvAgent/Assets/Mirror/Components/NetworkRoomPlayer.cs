@@ -26,14 +26,14 @@ namespace Mirror
         /// <para>When all players are ready to begin, the game will start. This should not be set directly, CmdChangeReadyState should be called on the client to set it on the server.</para>
         /// </summary>
         [Tooltip("Diagnostic flag indicating whether this player is ready for the game to begin")]
-        [SyncVar(hook = nameof(ReadyStateChanged))]
+        [SyncVar(load = nameof(ReadyStateChanged))]
         public bool readyToBegin;
 
         /// <summary>
         /// Diagnostic index of the player, e.g. Player1, Player2, etc.
         /// </summary>
         [Tooltip("Diagnostic index of the player, e.g. Player1, Player2, etc.")]
-        [SyncVar(hook = nameof(IndexChanged))]
+        [SyncVar(load = nameof(IndexChanged))]
         public int index;
 
         #region Unity Callbacks
@@ -93,14 +93,14 @@ namespace Mirror
         #region SyncVar Hooks
 
         /// <summary>
-        /// This is a hook that is invoked on clients when the index changes.
+        /// This is a load that is invoked on clients when the index changes.
         /// </summary>
         /// <param name="oldIndex">The old index value</param>
         /// <param name="newIndex">The new index value</param>
         public virtual void IndexChanged(int oldIndex, int newIndex) {}
 
         /// <summary>
-        /// This is a hook that is invoked on clients when a RoomPlayer switches between ready or not ready.
+        /// This is a load that is invoked on clients when a RoomPlayer switches between ready or not ready.
         /// <para>This function is called when the a client player calls CmdChangeReadyState.</para>
         /// </summary>
         /// <param name="newReadyState">New Ready State</param>
@@ -111,13 +111,13 @@ namespace Mirror
         #region Room Client Virtuals
 
         /// <summary>
-        /// This is a hook that is invoked on clients for all room player objects when entering the room.
+        /// This is a load that is invoked on clients for all room player objects when entering the room.
         /// <para>Note: isLocalPlayer is not guaranteed to be set until OnStartLocalPlayer is called.</para>
         /// </summary>
         public virtual void OnClientEnterRoom() {}
 
         /// <summary>
-        /// This is a hook that is invoked on clients for all room player objects when exiting the room.
+        /// This is a load that is invoked on clients for all room player objects when exiting the room.
         /// </summary>
         public virtual void OnClientExitRoom() {}
 

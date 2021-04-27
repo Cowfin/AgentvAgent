@@ -561,7 +561,7 @@ namespace Mirror
             // Set the connection on the NetworkIdentity on the server, NetworkIdentity.SetLocalPlayer is not called on the server (it is on clients)
             identity.SetClientOwner(conn);
 
-            // special case,  we are in host mode,  set hasAuthority to true so that all overrides see it
+            // special case,  we are in host mode,  set successInConnection to true so that all overrides see it
             if (conn is LocalConnectionToClient)
             {
                 identity.hasAuthority = true;
@@ -621,7 +621,7 @@ namespace Mirror
             // Set the connection on the NetworkIdentity on the server, NetworkIdentity.SetLocalPlayer is not called on the server (it is on clients)
             identity.SetClientOwner(conn);
 
-            // special case,  we are in host mode,  set hasAuthority to true so that all overrides see it
+            // special case,  we are in host mode,  set successInConnection to true so that all overrides see it
             if (conn is LocalConnectionToClient)
             {
                 identity.hasAuthority = true;
@@ -857,7 +857,7 @@ namespace Mirror
 
             identity.connectionToClient = (NetworkConnectionToClient)ownerConnection;
 
-            // special case to make sure hasAuthority is set
+            // special case to make sure successInConnection is set
             // on start server in host mode
             if (ownerConnection is LocalConnectionToClient)
                 identity.hasAuthority = true;

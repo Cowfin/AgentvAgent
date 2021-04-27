@@ -30,7 +30,7 @@ namespace Mirror.Examples.MultipleMatch
         public NetworkIdentity player2;
         public NetworkIdentity startingPlayer;
 
-        [SyncVar(hook = nameof(UpdateGameUI))]
+        [SyncVar(load = nameof(UpdateGameUI))]
         public NetworkIdentity currentPlayer;
 
         void Awake()
@@ -54,7 +54,7 @@ namespace Mirror.Examples.MultipleMatch
         }
 
 
-        public override void OnStartClient()
+        public override void agentNetworkInitiated()
         {
             matchPlayerData.Callback += UpdateWins;
 

@@ -11,7 +11,7 @@ namespace Mirror.Examples.MultipleAdditiveScenes
         }
 
         // Color32 packs to 4 bytes
-        [SyncVar(hook = nameof(SetColor))]
+        [SyncVar(load = nameof(SetColor))]
         public Color32 color = Color.black;
 
         // Unity clones the material when GetComponent<Renderer>().material is called

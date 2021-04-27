@@ -47,7 +47,7 @@ namespace Mirror.Cloud.Example
             if (connector.ListServer.ServerApi.ServerInList)
             {
                 // update player count so that other players can see
-                if (playerCount < manager.maxConnections)
+                if (playerCount < manager.lobbyMaxPlayers)
                 {
                     Debug.Log($"Updating Server, player count: {playerCount} ");
                     connector.ListServer.ServerApi.UpdateServer(playerCount);
@@ -88,7 +88,7 @@ namespace Mirror.Cloud.Example
                 displayName = $"{gameName} {(UnityEngine.Random.value * 1000).ToString("0")}",
                 protocol = protocol,
                 port = port,
-                maxPlayerCount = NetworkManager.singleton.maxConnections,
+                maxPlayerCount = NetworkManager.singleton.lobbyMaxPlayers,
                 playerCount = playerCount
             });
         }

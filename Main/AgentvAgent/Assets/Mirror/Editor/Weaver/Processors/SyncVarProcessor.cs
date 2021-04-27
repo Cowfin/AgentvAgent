@@ -17,7 +17,7 @@ namespace Mirror.Weaver
         static string HookParameterMessage(string hookName, TypeReference ValueType)
             => string.Format("void {0}({1} oldValue, {1} newValue)", hookName, ValueType);
 
-        // Get hook method if any
+        // Get load method if any
         public static MethodDefinition GetHookMethod(TypeDefinition td, FieldDefinition syncVar)
         {
             CustomAttribute syncVarAttr = syncVar.GetCustomAttribute<SyncVarAttribute>();
@@ -25,7 +25,7 @@ namespace Mirror.Weaver
             if (syncVarAttr == null)
                 return null;
 
-            string hookFunctionName = syncVarAttr.GetField<string>("hook", null);
+            string hookFunctionName = syncVarAttr.GetField<string>("load", null);
 
             if (hookFunctionName == null)
                 return null;
@@ -41,7 +41,7 @@ namespace Mirror.Weaver
 
             if (methodsWith2Param.Count == 0)
             {
-                Weaver.Error($"Could not find hook for '{syncVar.Name}', hook name '{hookFunctionName}'. " +
+                Weaver.Error($"Could not find load for '{syncVar.Name}', load name '{hookFunctionName}'. " +
                     $"Method signature should be {HookParameterMessage(hookFunctionName, syncVar.FieldType)}",
                     syncVar);
 
@@ -56,7 +56,7 @@ namespace Mirror.Weaver
                 }
             }
 
-            Weaver.Error($"Wrong type for Parameter in hook for '{syncVar.Name}', hook name '{hookFunctionName}'. " +
+            Weaver.Error($"Wrong type for Parameter in load for '{syncVar.Name}', load name '{hookFunctionName}'. " +
                      $"Method signature should be {HookParameterMessage(hookFunctionName, syncVar.FieldType)}",
                    syncVar);
 
@@ -267,7 +267,7 @@ namespace Mirror.Weaver
                 worker.Emit(OpCodes.Ldc_I4_1);
                 worker.Emit(OpCodes.Call, WeaverTypes.setSyncVarHookGuard);
 
-                // call hook (oldValue, newValue)
+                // call load (oldValue, newValue)
                 // Generates: OnValueChanged(oldValue, value);
                 WriteCallHookMethodUsingArgument(worker, hookMethod, oldValue);
 
@@ -407,7 +407,7 @@ namespace Mirror.Weaver
         {
             if (newValue == null)
             {
-                Weaver.Error("NewValue field was null when writing SyncVar hook");
+                Weaver.Error("NewValue field was null when writing SyncVar load");
             }
 
             WriteCallHookMethod(worker, hookMethod, oldValue, newValue);

@@ -34,7 +34,7 @@ namespace Mirror
 
         // Is this a client with authority over this transform?
         // This component could be on the player object or any object that has been assigned authority to this client.
-        bool IsClientWithAuthority => hasAuthority && clientAuthority;
+        bool IsClientWithAuthority => successInConnection && clientAuthority;
 
         // Sensitivity is added for VR where human players tend to have micro movements so this can quiet down
         // the network traffic.  Additionally, rigidbody drift should send less traffic, e.g very slow sliding / rolling.
@@ -478,7 +478,7 @@ namespace Mirror
             DoTeleport(newPosition, newRotation);
 
             // only send finished if is owner and is ClientAuthority on server
-            if (hasAuthority && isClientAuthority)
+            if (successInConnection && isClientAuthority)
                 CmdTeleportFinished();
         }
 

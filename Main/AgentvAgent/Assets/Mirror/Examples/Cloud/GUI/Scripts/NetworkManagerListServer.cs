@@ -27,10 +27,10 @@ namespace Mirror.Cloud.Example
 
         int connectionCount => NetworkServer.connections.Count;
 
-        public override void OnServerConnect(NetworkConnection conn)
+        public override void networkStatusSecure(NetworkConnection conn)
         {
             int count = connectionCount;
-            if (count > maxConnections)
+            if (count > lobbyMaxPlayers)
             {
                 conn.Disconnect();
                 return;
@@ -39,9 +39,9 @@ namespace Mirror.Cloud.Example
             onPlayerListChanged?.Invoke(count);
         }
 
-        public override void OnServerDisconnect(NetworkConnection conn)
+        public override void networkStatusInsecure(NetworkConnection conn)
         {
-            base.OnServerDisconnect(conn);
+            base.networkStatusInsecure(conn);
             onPlayerListChanged?.Invoke(connectionCount);
         }
 
@@ -50,7 +50,7 @@ namespace Mirror.Cloud.Example
             onServerStarted?.Invoke();
         }
 
-        public override void OnStopServer()
+        public override void removeNetworkConnection()
         {
             onServerStopped?.Invoke();
         }

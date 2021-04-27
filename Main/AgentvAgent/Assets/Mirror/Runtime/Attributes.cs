@@ -10,7 +10,7 @@ namespace Mirror
     [AttributeUsage(AttributeTargets.Field)]
     public class SyncVarAttribute : PropertyAttribute
     {
-        public string hook;
+        public string load;
     }
 
     /// <summary>

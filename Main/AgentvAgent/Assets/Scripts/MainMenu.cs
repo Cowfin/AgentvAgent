@@ -5,17 +5,17 @@
     public class MainMenu : MonoBehaviour
     {
         [SerializeField]
-         private NetworkManagerLobby agentLobbyBuild = null;
+         private NetworkManagerLobby agentNetworkLobby = null;
 
         [Header("UI")]
         [SerializeField]
-        private GameObject LobbyMenu = null;
+        private GameObject  agentRoomMenu = null;
 
         public void HostLobby()
         {
-            agentLobbyBuild.StartHost();
+            agentNetworkLobby.StartHost();
 
-            LobbyMenu.SetActive(false);
+            agentRoomMenu.SetActive(false);
         }
 
     public void QuitGame()

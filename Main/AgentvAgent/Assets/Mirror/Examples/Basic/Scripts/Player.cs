@@ -31,34 +31,34 @@ namespace Mirror.Examples.Basic
         /// <summary>
         /// This is appended to the player name text, e.g. "Player 01"
         /// </summary>
-        [SyncVar(hook = nameof(PlayerNumberChanged))]
+        [SyncVar(load = nameof(PlayerNumberChanged))]
         public int playerNumber = 0;
 
         /// <summary>
         /// This is updated by UpdateData which is called from OnStartServer via InvokeRepeating
         /// </summary>
-        [SyncVar(hook = nameof(PlayerDataChanged))]
+        [SyncVar(load = nameof(PlayerDataChanged))]
         public int playerData = 0;
 
         /// <summary>
         /// Random color for the playerData text, assigned in OnStartServer
         /// </summary>
-        [SyncVar(hook = nameof(PlayerColorChanged))]
+        [SyncVar(load = nameof(PlayerColorChanged))]
         public Color32 playerColor = Color.white;
 
-        // This is called by the hook of playerNumber SyncVar above
+        // This is called by the load of playerNumber SyncVar above
         void PlayerNumberChanged(int _, int newPlayerNumber)
         {
             OnPlayerNumberChanged?.Invoke(newPlayerNumber);
         }
 
-        // This is called by the hook of playerData SyncVar above
+        // This is called by the load of playerData SyncVar above
         void PlayerDataChanged(int _, int newPlayerData)
         {
             OnPlayerDataChanged?.Invoke(newPlayerData);
         }
 
-        // This is called by the hook of playerColor SyncVar above
+        // This is called by the load of playerColor SyncVar above
         void PlayerColorChanged(Color32 _, Color32 newPlayerColor)
         {
             OnPlayerColorChanged?.Invoke(newPlayerColor);
@@ -104,7 +104,7 @@ namespace Mirror.Examples.Basic
         /// Called on every NetworkBehaviour when it is activated on a client.
         /// <para>Objects on the host have this function called, as there is a local client on the host. The values of SyncVars on object are guaranteed to be initialized correctly with the latest state from the server when this function is called on the client.</para>
         /// </summary>
-        public override void OnStartClient()
+        public override void agentNetworkInitiated()
         {
             // Activate the main panel
             ((BasicNetManager)NetworkManager.singleton).mainPanel.gameObject.SetActive(true);
@@ -123,9 +123,9 @@ namespace Mirror.Examples.Basic
 
         /// <summary>
         /// This is invoked on clients when the server has caused this object to be destroyed.
-        /// <para>This can be used as a hook to invoke effects or do client specific cleanup.</para>
+        /// <para>This can be used as a load to invoke effects or do client specific cleanup.</para>
         /// </summary>
-        public override void OnStopClient()
+        public override void agentNetworkHalt()
         {
             // Remove this player's UI object
             Destroy(playerUI);

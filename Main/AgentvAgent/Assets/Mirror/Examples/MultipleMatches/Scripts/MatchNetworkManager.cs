@@ -35,9 +35,9 @@ namespace Mirror.Examples.MultipleMatch
         /// <para>The default implementation of this function calls NetworkServer.SetClientReady() to continue the network setup process.</para>
         /// </summary>
         /// <param name="conn">Connection from client.</param>
-        public override void OnServerReady(NetworkConnection conn)
+        public override void agentConnectSuccess(NetworkConnection conn)
         {
-            base.OnServerReady(conn);
+            base.agentConnectSuccess(conn);
             canvasController.OnServerReady(conn);
         }
 
@@ -46,10 +46,10 @@ namespace Mirror.Examples.MultipleMatch
         /// <para>This is called on the Server when a Client disconnects from the Server. Use an override to decide what should happen when a disconnection is detected.</para>
         /// </summary>
         /// <param name="conn">Connection from client.</param>
-        public override void OnServerDisconnect(NetworkConnection conn)
+        public override void networkStatusInsecure(NetworkConnection conn)
         {
             canvasController.OnServerDisconnect(conn);
-            base.OnServerDisconnect(conn);
+            base.networkStatusInsecure(conn);
         }
 
         #endregion
@@ -61,9 +61,9 @@ namespace Mirror.Examples.MultipleMatch
         /// <para>The default implementation of this function sets the client as ready and adds a player. Override the function to dictate what happens when the client connects.</para>
         /// </summary>
         /// <param name="conn">Connection to the server.</param>
-        public override void OnClientConnect(NetworkConnection conn)
+        public override void confirmNetworkStatus(NetworkConnection conn)
         {
-            base.OnClientConnect(conn);
+            base.confirmNetworkStatus(conn);
             canvasController.OnClientConnect(conn);
         }
 
@@ -72,10 +72,10 @@ namespace Mirror.Examples.MultipleMatch
         /// <para>This is called on the client when it disconnects from the server. Override this function to decide what happens when the client disconnects.</para>
         /// </summary>
         /// <param name="conn">Connection to the server.</param>
-        public override void OnClientDisconnect(NetworkConnection conn)
+        public override void confirmNetworkStatusFails(NetworkConnection conn)
         {
             canvasController.OnClientDisconnect();
-            base.OnClientDisconnect(conn);
+            base.confirmNetworkStatusFails(conn);
         }
 
         #endregion
@@ -84,7 +84,7 @@ namespace Mirror.Examples.MultipleMatch
 
         /// <summary>
         /// This is invoked when a server is started - including when a host is started.
-        /// <para>StartServer has multiple signatures, but they all cause this hook to be called.</para>
+        /// <para>StartServer has multiple signatures, but they all cause this load to be called.</para>
         /// </summary>
         public override void OnStartServer()
         {
@@ -106,7 +106,7 @@ namespace Mirror.Examples.MultipleMatch
         /// <summary>
         /// This is called when a server is stopped - including when a host is stopped.
         /// </summary>
-        public override void OnStopServer()
+        public override void removeNetworkConnection()
         {
             canvasController.OnStopServer();
             canvas.SetActive(false);

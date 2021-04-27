@@ -34,7 +34,7 @@ namespace Mirror
         /// <summary>
         /// Syncs animator.speed
         /// </summary>
-        [SyncVar(hook = nameof(OnAnimatorSpeedChanged))]
+        [SyncVar(load = nameof(OnAnimatorSpeedChanged))]
         float animatorSpeed;
         float previousSpeed;
 
@@ -68,7 +68,7 @@ namespace Mirror
                         return true;
                 }
 
-                return (hasAuthority && clientAuthority);
+                return (successInConnection && clientAuthority);
             }
         }
 
@@ -145,7 +145,7 @@ namespace Mirror
         {
             // skip if host or client with authority
             // they will have already set the speed so don't set again
-            if (isServer || (hasAuthority && clientAuthority))
+            if (isServer || (successInConnection && clientAuthority))
                 return;
 
             animator.speed = value;
@@ -235,7 +235,7 @@ namespace Mirror
 
         void HandleAnimMsg(int stateHash, float normalizedTime, int layerId, float weight, NetworkReader reader)
         {
-            if (hasAuthority && clientAuthority)
+            if (successInConnection && clientAuthority)
                 return;
 
             // usually transitions will be triggered by parameters, if not, play anims directly.
@@ -253,7 +253,7 @@ namespace Mirror
 
         void HandleAnimParamsMsg(NetworkReader reader)
         {
-            if (hasAuthority && clientAuthority)
+            if (successInConnection && clientAuthority)
                 return;
 
             ReadParameters(reader);
@@ -449,7 +449,7 @@ namespace Mirror
                     return;
                 }
 
-                if (!hasAuthority)
+                if (!successInConnection)
                 {
                     Debug.LogWarning("Only the client with authority can set animations");
                     return;
@@ -498,7 +498,7 @@ namespace Mirror
                     return;
                 }
 
-                if (!hasAuthority)
+                if (!successInConnection)
                 {
                     Debug.LogWarning("Only the client with authority can reset animations");
                     return;
@@ -566,7 +566,7 @@ namespace Mirror
 
             // handle and broadcast
             // host should have already the trigger
-            bool isHostOwner = isClient && hasAuthority;
+            bool isHostOwner = isClient && successInConnection;
             if (!isHostOwner)
             {
                 HandleAnimTriggerMsg(hash);
@@ -584,7 +584,7 @@ namespace Mirror
 
             // handle and broadcast
             // host should have already the trigger
-            bool isHostOwner = isClient && hasAuthority;
+            bool isHostOwner = isClient && successInConnection;
             if (!isHostOwner)
             {
                 HandleAnimResetTriggerMsg(hash);
@@ -615,7 +615,7 @@ namespace Mirror
         void RpcOnAnimationTriggerClientMessage(int hash)
         {
             // host/owner handles this before it is sent
-            if (isServer || (clientAuthority && hasAuthority)) return;
+            if (isServer || (clientAuthority && successInConnection)) return;
 
             HandleAnimTriggerMsg(hash);
         }
@@ -624,7 +624,7 @@ namespace Mirror
         void RpcOnAnimationResetTriggerClientMessage(int hash)
         {
             // host/owner handles this before it is sent
-            if (isServer || (clientAuthority && hasAuthority)) return;
+            if (isServer || (clientAuthority && successInConnection)) return;
 
             HandleAnimResetTriggerMsg(hash);
         }

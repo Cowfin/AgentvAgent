@@ -57,7 +57,7 @@ namespace Mirror
         // netId of new or existing object
         public uint netId;
         public bool isLocalPlayer;
-        // Sets hasAuthority on the spawned object
+        // Sets successInConnection on the spawned object
         public bool isOwner;
         public ulong sceneId;
         // If sceneId != 0 then it is used instead of assetId

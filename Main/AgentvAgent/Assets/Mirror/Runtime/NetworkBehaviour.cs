@@ -46,7 +46,7 @@ namespace Mirror
 
         /// <summary>This returns true if this object is the authoritative version of the object in the distributed network application.</summary>
         // keeping this ridiculous summary as a reminder of a time long gone...
-        public bool hasAuthority => netIdentity.hasAuthority;
+        public bool successInConnection => netIdentity.hasAuthority;
 
         /// <summary>The unique network Id of this object (unique at runtime).</summary>
         public uint netId => netIdentity.netId;
@@ -140,7 +140,7 @@ namespace Mirror
             }
 
             // local players can always send commands, regardless of authority, other objects must have authority.
-            if (!(!requiresAuthority || isLocalPlayer || hasAuthority))
+            if (!(!requiresAuthority || isLocalPlayer || successInConnection))
             {
                 Debug.LogWarning($"Trying to send command for object without authority. {invokeClass.ToString()}.{cmdName}");
                 return;
@@ -691,10 +691,10 @@ namespace Mirror
         public virtual void OnStopServer() {}
 
         /// <summary>Like Start(), but only called on client and host.</summary>
-        public virtual void OnStartClient() {}
+        public virtual void agentNetworkInitiated() {}
 
         /// <summary>Stop event, only called on client and host.</summary>
-        public virtual void OnStopClient() {}
+        public virtual void agentNetworkHalt() {}
 
         /// <summary>Like Start(), but only called on client and host for the local player object.</summary>
         public virtual void OnStartLocalPlayer() {}

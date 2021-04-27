@@ -5,11 +5,11 @@ namespace Mirror.Examples.NetworkRoom
     [AddComponentMenu("")]
     public class NetworkRoomPlayerExt : NetworkRoomPlayer
     {
-        public override void OnStartClient()
+        public override void agentNetworkInitiated()
         {
             // Debug.LogFormat(LogType.Log, "OnStartClient {0}", SceneManager.GetActiveScene().path);
 
-            base.OnStartClient();
+            base.agentNetworkInitiated();
         }
 
         public override void OnClientEnterRoom()

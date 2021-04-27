@@ -73,11 +73,11 @@ namespace Mirror
             Telepathy.Log.Error = Debug.LogError;
 
             // client hooks
-            // other systems hook into transport events in OnCreate or
+            // other systems load into transport events in OnCreate or
             // OnStartRunning in no particular order. the only way to avoid
             // race conditions where telepathy uses OnConnected before another
-            // system's hook (e.g. statistics OnData) was added is to wrap
-            // them all in a lambda and always call the latest hook.
+            // system's load (e.g. statistics OnData) was added is to wrap
+            // them all in a lambda and always call the latest load.
             // (= lazy call)
             client.OnConnected = () => OnClientConnected.Invoke();
             client.OnData = (segment) => OnClientDataReceived.Invoke(segment, Channels.Reliable);
@@ -91,11 +91,11 @@ namespace Mirror
             client.ReceiveQueueLimit = clientReceiveQueueLimit;
 
             // server hooks
-            // other systems hook into transport events in OnCreate or
+            // other systems load into transport events in OnCreate or
             // OnStartRunning in no particular order. the only way to avoid
             // race conditions where telepathy uses OnConnected before another
-            // system's hook (e.g. statistics OnData) was added is to wrap
-            // them all in a lambda and always call the latest hook.
+            // system's load (e.g. statistics OnData) was added is to wrap
+            // them all in a lambda and always call the latest load.
             // (= lazy call)
             server.OnConnected = (connectionId) => OnServerConnected.Invoke(connectionId);
             server.OnData = (connectionId, segment) => OnServerDataReceived.Invoke(connectionId, segment, Channels.Reliable);

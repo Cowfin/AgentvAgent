@@ -36,7 +36,7 @@ namespace Mirror.Examples.Additive
             }
         }
 
-        public override void OnStopServer()
+        public override void removeNetworkConnection()
         {
             StartCoroutine(UnloadScenes());
         }

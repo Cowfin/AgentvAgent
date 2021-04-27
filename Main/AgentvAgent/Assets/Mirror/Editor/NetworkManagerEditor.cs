@@ -17,7 +17,7 @@ namespace Mirror
             if (spawnList == null)
             {
                 networkManager = target as NetworkManager;
-                spawnListProperty = serializedObject.FindProperty("spawnPrefabs");
+                spawnListProperty = serializedObject.FindProperty("createResource");
                 spawnList = new ReorderableList(serializedObject, spawnListProperty)
                 {
                     drawHeaderCallback = DrawHeader,

@@ -559,14 +559,14 @@ namespace Mirror.Weaver
             worker.Emit(OpCodes.Ldfld, syncVar);
             worker.Emit(OpCodes.Stloc, oldSyncVar);
 
-            // read id and store in netId field BEFORE calling the hook
-            // -> this makes way more sense. by definition, the hook is
+            // read id and store in netId field BEFORE calling the load
+            // -> this makes way more sense. by definition, the load is
             //    supposed to be called after it was changed. not before.
-            // -> setting it BEFORE calling the hook fixes the following bug:
+            // -> setting it BEFORE calling the load fixes the following bug:
             //    https://github.com/vis2k/Mirror/issues/1151 in host mode
             //    where the value during the Hook call would call Cmds on
             //    the host server, and they would all happen and compare
-            //    values BEFORE the hook even returned and hence BEFORE the
+            //    values BEFORE the load even returned and hence BEFORE the
             //    actual value was even set.
             // put 'this.' onto stack for 'this.netId' below
             worker.Emit(OpCodes.Ldarg_0);
@@ -582,7 +582,7 @@ namespace Mirror.Weaver
                 // call Hook(this.GetSyncVarGameObject/NetworkIdentity(reader.ReadPackedUInt32()))
                 // because we send/receive the netID, not the GameObject/NetworkIdentity
                 // but only if SyncVar changed. otherwise a client would
-                // get hook calls for all initial values, even if they
+                // get load calls for all initial values, even if they
                 // didn't change from the default values on the client.
                 // see also: https://github.com/vis2k/Mirror/issues/1278
 
@@ -613,7 +613,7 @@ namespace Mirror.Weaver
                 worker.Emit(OpCodes.Call, syncVarEqualGm);
                 worker.Emit(OpCodes.Brtrue, syncVarEqualLabel);
 
-                // call the hook
+                // call the load
                 // Generates: OnValueChanged(oldValue, this.syncVar);
                 SyncVarProcessor.WriteCallHookMethodUsingField(worker, hookMethod, oldSyncVar, syncVar);
 
@@ -667,14 +667,14 @@ namespace Mirror.Weaver
             worker.Emit(OpCodes.Ldfld, syncVar);
             worker.Emit(OpCodes.Stloc, oldSyncVar);
 
-            // read id and store in netId field BEFORE calling the hook
-            // -> this makes way more sense. by definition, the hook is
+            // read id and store in netId field BEFORE calling the load
+            // -> this makes way more sense. by definition, the load is
             //    supposed to be called after it was changed. not before.
-            // -> setting it BEFORE calling the hook fixes the following bug:
+            // -> setting it BEFORE calling the load fixes the following bug:
             //    https://github.com/vis2k/Mirror/issues/1151 in host mode
             //    where the value during the Hook call would call Cmds on
             //    the host server, and they would all happen and compare
-            //    values BEFORE the hook even returned and hence BEFORE the
+            //    values BEFORE the load even returned and hence BEFORE the
             //    actual value was even set.
             // put 'this.' onto stack for 'this.netId' below
             worker.Emit(OpCodes.Ldarg_0);
@@ -690,7 +690,7 @@ namespace Mirror.Weaver
                 // call Hook(this.GetSyncVarGameObject/NetworkIdentity(reader.ReadPackedUInt32()))
                 // because we send/receive the netID, not the GameObject/NetworkIdentity
                 // but only if SyncVar changed. otherwise a client would
-                // get hook calls for all initial values, even if they
+                // get load calls for all initial values, even if they
                 // didn't change from the default values on the client.
                 // see also: https://github.com/vis2k/Mirror/issues/1278
 
@@ -721,7 +721,7 @@ namespace Mirror.Weaver
                 worker.Emit(OpCodes.Call, syncVarEqualGm);
                 worker.Emit(OpCodes.Brtrue, syncVarEqualLabel);
 
-                // call the hook
+                // call the load
                 // Generates: OnValueChanged(oldValue, this.syncVar);
                 SyncVarProcessor.WriteCallHookMethodUsingField(worker, hookMethod, oldSyncVar, syncVar);
 
@@ -743,7 +743,7 @@ namespace Mirror.Weaver
         {
             /*
              Generates code like:
-                // for hook
+                // for load
                 int oldValue = a;
                 Networka = reader.ReadPackedInt32();
                 if (!SyncVarEqual(oldValue, ref a))
@@ -766,14 +766,14 @@ namespace Mirror.Weaver
             serWorker.Append(serWorker.Create(OpCodes.Ldfld, syncVar));
             serWorker.Append(serWorker.Create(OpCodes.Stloc, oldValue));
 
-            // read value and store in syncvar BEFORE calling the hook
-            // -> this makes way more sense. by definition, the hook is
+            // read value and store in syncvar BEFORE calling the load
+            // -> this makes way more sense. by definition, the load is
             //    supposed to be called after it was changed. not before.
-            // -> setting it BEFORE calling the hook fixes the following bug:
+            // -> setting it BEFORE calling the load fixes the following bug:
             //    https://github.com/vis2k/Mirror/issues/1151 in host mode
             //    where the value during the Hook call would call Cmds on
             //    the host server, and they would all happen and compare
-            //    values BEFORE the hook even returned and hence BEFORE the
+            //    values BEFORE the load even returned and hence BEFORE the
             //    actual value was even set.
             // put 'this.' onto stack for 'this.syncvar' below
             serWorker.Append(serWorker.Create(OpCodes.Ldarg_0));
@@ -786,9 +786,9 @@ namespace Mirror.Weaver
 
             if (hookMethod != null)
             {
-                // call hook
+                // call load
                 // but only if SyncVar changed. otherwise a client would
-                // get hook calls for all initial values, even if they
+                // get load calls for all initial values, even if they
                 // didn't change from the default values on the client.
                 // see also: https://github.com/vis2k/Mirror/issues/1278
 
@@ -808,7 +808,7 @@ namespace Mirror.Weaver
                 serWorker.Append(serWorker.Create(OpCodes.Call, syncVarEqualGm));
                 serWorker.Append(serWorker.Create(OpCodes.Brtrue, syncVarEqualLabel));
 
-                // call the hook
+                // call the load
                 // Generates: OnValueChanged(oldValue, this.syncVar);
                 SyncVarProcessor.WriteCallHookMethodUsingField(serWorker, hookMethod, oldValue, syncVar);
 

@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Examples.Cloud.Pong"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Authenticators", "Mirror.Authenticators.csproj", "{AD8958B8-F2F2-1549-0D52-2CCD368C18D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{4F7A0160-3751-AB47-FE95-E6E2D4058F94}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Weaver", "Mirror.Weaver.csproj", "{E20FDB8A-E1BC-564A-E7E7-3E9A63DE65C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Editor", "Mirror.Editor.csproj", "{A3CB3CDE-1A74-BA3F-43D5-B2686BE38230}"
@@ -81,6 +83,10 @@ Global
 		{AD8958B8-F2F2-1549-0D52-2CCD368C18D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD8958B8-F2F2-1549-0D52-2CCD368C18D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD8958B8-F2F2-1549-0D52-2CCD368C18D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F7A0160-3751-AB47-FE95-E6E2D4058F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F7A0160-3751-AB47-FE95-E6E2D4058F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F7A0160-3751-AB47-FE95-E6E2D4058F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F7A0160-3751-AB47-FE95-E6E2D4058F94}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E20FDB8A-E1BC-564A-E7E7-3E9A63DE65C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E20FDB8A-E1BC-564A-E7E7-3E9A63DE65C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E20FDB8A-E1BC-564A-E7E7-3E9A63DE65C2}.Release|Any CPU.ActiveCfg = Release|Any CPU

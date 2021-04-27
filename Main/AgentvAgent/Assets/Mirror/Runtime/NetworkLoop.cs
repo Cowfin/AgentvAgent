@@ -145,7 +145,7 @@ namespace Mirror
             return false;
         }
 
-        // hook into Unity runtime to actually add our custom functions
+        // load into Unity runtime to actually add our custom functions
         [RuntimeInitializeOnLoadMethod]
         static void RuntimeInitializeOnLoad()
         {

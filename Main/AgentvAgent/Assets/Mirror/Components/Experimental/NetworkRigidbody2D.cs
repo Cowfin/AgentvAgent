@@ -49,22 +49,22 @@ namespace Mirror.Experimental
 
 
         #region Sync vars
-        [SyncVar(hook = nameof(OnVelocityChanged))]
+        [SyncVar(load = nameof(OnVelocityChanged))]
         Vector2 velocity;
 
-        [SyncVar(hook = nameof(OnAngularVelocityChanged))]
+        [SyncVar(load = nameof(OnAngularVelocityChanged))]
         float angularVelocity;
 
-        [SyncVar(hook = nameof(OnIsKinematicChanged))]
+        [SyncVar(load = nameof(OnIsKinematicChanged))]
         bool isKinematic;
 
-        [SyncVar(hook = nameof(OnGravityScaleChanged))]
+        [SyncVar(load = nameof(OnGravityScaleChanged))]
         float gravityScale;
 
-        [SyncVar(hook = nameof(OnuDragChanged))]
+        [SyncVar(load = nameof(OnuDragChanged))]
         float drag;
 
-        [SyncVar(hook = nameof(OnAngularDragChanged))]
+        [SyncVar(load = nameof(OnAngularDragChanged))]
         float angularDrag;
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Mirror.Experimental
         /// <returns></returns>
         bool IgnoreSync => isServer || ClientWithAuthority;
 
-        bool ClientWithAuthority => clientAuthority && hasAuthority;
+        bool ClientWithAuthority => clientAuthority && successInConnection;
 
         void OnVelocityChanged(Vector2 _, Vector2 newValue)
         {
@@ -190,7 +190,7 @@ namespace Mirror.Experimental
         [Client]
         void SendToServer()
         {
-            if (!hasAuthority)
+            if (!successInConnection)
             {
                 Debug.LogWarning("SendToServer called without authority");
                 return;

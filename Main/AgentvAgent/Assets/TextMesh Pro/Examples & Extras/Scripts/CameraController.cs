@@ -70,7 +70,7 @@ namespace TMPro.Examples
         {
             if (CameraTarget == null)
             {
-                // If we don't have a target (assigned by the player, create a dummy in the center of the scene).
+                // If we don't have a target (assigned by the player, create a dummy in the center of the agentGamePlayScene).
                 dummyTarget = new GameObject("Camera Target").transform;
                 CameraTarget = dummyTarget;
             }
@@ -127,7 +127,7 @@ namespace TMPro.Examples
         {
             moveVector = Vector3.zero;
 
-            // Check Mouse Wheel Input prior to Shift Key so we can apply multiplier on Shift for Scrolling
+            // Check Mouse Wheel textInput prior to Shift Key so we can apply multiplier on Shift for Scrolling
             mouseWheel = Input.GetAxis("Mouse ScrollWheel");
 
             float touchCount = Input.touchCount;
@@ -169,7 +169,7 @@ namespace TMPro.Examples
                     }
                 }
 
-                // Get Input from Mobile Device
+                // Get textInput from Mobile Device
                 if (touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
                 {
                     Vector2 deltaPosition = Input.GetTouch(0).deltaPosition;

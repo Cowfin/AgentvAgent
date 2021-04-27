@@ -279,6 +279,9 @@
     <Reference Include="Mono.CecilX.Rocks">
       <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
     </Reference>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+    </Reference>
     <Reference Include="GitHub.Api.45">
       <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Plugins/GitHub/Editor/GitHub.Api.45.dll</HintPath>
     </Reference>
@@ -293,6 +296,9 @@
     </Reference>
     <Reference Include="sfw.net">
       <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Plugins/GitHub/Editor/sfw.net.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>C:/Users/Noel/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
@@ -761,6 +767,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{4F7A0160-3751-AB47-FE95-E6E2D4058F94}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="Mirror.Weaver.csproj">
       <Project>{E20FDB8A-E1BC-564A-E7E7-3E9A63DE65C2}</Project>
       <Name>Mirror.Weaver</Name>

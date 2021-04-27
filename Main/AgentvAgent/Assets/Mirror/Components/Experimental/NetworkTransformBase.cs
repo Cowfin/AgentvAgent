@@ -103,7 +103,7 @@ namespace Mirror.Experimental
 
         // Is this a client with authority over this transform?
         // This component could be on the player object or any object that has been assigned authority to this client.
-        bool IsOwnerWithClientAuthority => hasAuthority && clientAuthority;
+        bool IsOwnerWithClientAuthority => successInConnection && clientAuthority;
 
         // interpolation start and goal
         public DataPoint start = new DataPoint();
@@ -232,7 +232,7 @@ namespace Mirror.Experimental
         [ClientRpc(channel = Channels.Unreliable)]
         void RpcMove(Vector3 position, uint packedRotation, Vector3 scale)
         {
-            if (hasAuthority && excludeOwnerUpdate) return;
+            if (successInConnection && excludeOwnerUpdate) return;
 
             if (!isServer)
                 SetGoal(position, Compression.DecompressQuaternion(packedRotation), scale);
@@ -462,7 +462,7 @@ namespace Mirror.Experimental
             DoTeleport(newPosition, Compression.DecompressQuaternion(newPackedRotation));
 
             // only send finished if is owner and is ClientAuthority on server 
-            if (hasAuthority && isClientAuthority)
+            if (successInConnection && isClientAuthority)
                 CmdTeleportFinished();
         }
 

@@ -28,9 +28,9 @@ namespace Mirror.Examples.Chat
             NetworkServer.RegisterHandler<CreatePlayerMessage>(OnCreatePlayer);
         }
 
-        public override void OnClientConnect(NetworkConnection conn)
+        public override void confirmNetworkStatus(NetworkConnection conn)
         {
-            base.OnClientConnect(conn);
+            base.confirmNetworkStatus(conn);
 
             // tell the server to create a player with this name
             conn.Send(new CreatePlayerMessage { name = PlayerName });

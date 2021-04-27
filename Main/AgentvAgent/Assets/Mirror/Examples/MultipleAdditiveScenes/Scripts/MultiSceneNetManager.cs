@@ -34,7 +34,7 @@ namespace Mirror.Examples.MultipleAdditiveScenes
         /// <para>The default implementation for this function creates a new player object from the playerPrefab.</para>
         /// </summary>
         /// <param name="conn">Connection from client.</param>
-        public override void OnServerAddPlayer(NetworkConnection conn)
+        public override void lobbyNetworkCount(NetworkConnection conn)
         {
             StartCoroutine(OnServerAddPlayerDelayed(conn));
         }
@@ -53,7 +53,7 @@ namespace Mirror.Examples.MultipleAdditiveScenes
             // Wait for end of frame before adding the player to ensure Scene Message goes first
             yield return new WaitForEndOfFrame();
 
-            base.OnServerAddPlayer(conn);
+            base.lobbyNetworkCount(conn);
 
             PlayerScore playerScore = conn.identity.GetComponent<PlayerScore>();
             playerScore.playerNumber = clientIndex;
@@ -75,7 +75,7 @@ namespace Mirror.Examples.MultipleAdditiveScenes
 
         /// <summary>
         /// This is invoked when a server is started - including when a host is started.
-        /// <para>StartServer has multiple signatures, but they all cause this hook to be called.</para>
+        /// <para>StartServer has multiple signatures, but they all cause this load to be called.</para>
         /// </summary>
         public override void OnStartServer()
         {
@@ -102,7 +102,7 @@ namespace Mirror.Examples.MultipleAdditiveScenes
         /// <summary>
         /// This is called when a server is stopped - including when a host is stopped.
         /// </summary>
-        public override void OnStopServer()
+        public override void removeNetworkConnection()
         {
             NetworkServer.SendToAll(new SceneMessage { sceneName = gameScene, sceneOperation = SceneOperation.UnloadAdditive });
             StartCoroutine(ServerUnloadSubScenes());
