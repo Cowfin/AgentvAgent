@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    Transform[] gatheringSpots;
-    Transform target;
+    GatheringSpot[] gatheringSpots;
+    GatheringSpot target;
     bool drawPathGizmos;
     float speed = 1f;
     float turnSpeed = 5f;
@@ -30,6 +30,16 @@ public class Unit : MonoBehaviour
         {
             PathRequestManager.UpdateGrid(new GridUpdate(currentNode, -weight));
             PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
+        }
+    }
+
+    GatheringSpot FindGatheringSpot()
+    {
+        GatheringSpot[] availableGatherings;
+        foreach (GatheringSpot g in gatheringSpots)
+        {
+            //FIX ME : NEED TO GRAB ORIGINAL GATHERING SPOTS, NOT COPY
+            if(g.)
         }
     }
 
