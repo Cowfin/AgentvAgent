@@ -44,11 +44,15 @@ public class SpyInteraction : MonoBehaviour
             taskText.text = database.tasks[hitTaskID].name;
             if (Input.GetKey(KeyCode.E))
             {
+                if (hitTaskID == 0) {
+                    Debug.Log("Pressed E on for blend in animation");
+                }
+                else {
                 Debug.Log("Pressed E on task");
                 Debug.Log("Time got: " + database.tasks[hitTaskID].completeTime);
-                //hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
                 totalTime = database.tasks[hitTaskID].completeTime;
                 TimerOn();
+                }
             }
         }
         else
