@@ -8,7 +8,7 @@ public class Unit : MonoBehaviour
     GatheringSpot spot;
     Spot target;
     bool drawPathGizmos;
-    float speed = 1f;
+    float speed = 5f;
     float turnSpeed = 5f;
     int weight = 4;
     Node[] path;
@@ -22,11 +22,11 @@ public class Unit : MonoBehaviour
     void Start()
     {
         drawPathGizmos = PathRequestManager.DrawPathGizmos();
-        gatheringSpots = PathRequestManager.RequestGatheringSpots();
+        //gatheringSpots = PathRequestManager.RequestGatheringSpots();
 
         waitTime = Random.Range(1f, 2f);
-        target = FindSpot();
-        
+        PathRequestManager.AvailableSpot(new SpotRequest(null, OnSpotFound));
+
         PathRequestManager.RequestWorldPosToNode(new WorldPosToNode(transform.position, OnNodeFound));
         if (currentNode != null)
         {
@@ -47,7 +47,11 @@ public class Unit : MonoBehaviour
             waitTime -= Time.deltaTime;
             if (waitTime <= 0)
             {
-                target = FindSpot();
+                if (target != null)
+                {
+                    FreeSpot(target);
+                }
+                PathRequestManager.AvailableSpot(new SpotRequest(target, OnSpotFound));
                 if (target != null)
                 {
                     walking = true;
@@ -59,26 +63,17 @@ public class Unit : MonoBehaviour
         }
     }
 
-    Spot FindSpot()
+    public void OnSpotFound(Spot outTarget, bool spotSearchSuccessful)
     {
-        List<GatheringSpot> availableGatherings = new List<GatheringSpot>();
-        for (int i = 0; i < gatheringSpots.Capacity; i++)
+        if (spotSearchSuccessful)
         {
-            if (gatheringSpots[i].checkStatus() == false)
-            {
-                availableGatherings.Add(gatheringSpots[i]);
-            }
+            target = outTarget;
         }
-        Spot targetSpot = null;
-        for (int j = 0; j < availableGatherings.Capacity; j++)
-        {
-            if (availableGatherings[j].checkStatus() == false)
-            {
-                targetSpot = availableGatherings[j].assignSpot();
-                break;
-            }
-        }
-        return targetSpot;
+    }
+
+    void FreeSpot(Spot spot)
+    {
+        PathRequestManager.releaseSpot(spot);
     }
 
     public void OnNodeFound(Node node, bool conversionSuccessful)
@@ -116,6 +111,7 @@ public class Unit : MonoBehaviour
                 targetIndex++;
                 if (targetIndex >= path.Length)
                 {
+                    walking = false;
                     yield break;
                 }
                 oldNode = currentNode;
@@ -126,7 +122,6 @@ public class Unit : MonoBehaviour
                 {
                     if (targetIndex + i >= path.Length)
                     {
-                        walking = false;
                         break;
                     }
                     //int gridWeight = PathRequestManager.requestNode(currentNode).movementWeight;
@@ -148,7 +143,11 @@ public class Unit : MonoBehaviour
                 }
             }
             transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
-            Quaternion targetRotation = Quaternion.LookRotation(currentWaypoint - transform.position);
+            Quaternion targetRotation = transform.rotation;
+            if (currentWaypoint - transform.position != Vector3.zero)
+            {
+                targetRotation = Quaternion.LookRotation(currentWaypoint - transform.position);
+            }
             if (targetRotation != transform.rotation)
             {
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);

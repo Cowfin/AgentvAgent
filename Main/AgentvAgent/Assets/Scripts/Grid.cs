@@ -42,7 +42,6 @@ public class Grid : MonoBehaviour
         lock (grid)
         {
             grid[update.nodeToUpdate.gridX, update.nodeToUpdate.gridY].movementWeight += update.weight;
-
             foreach (Node n in this.GetNeighbours(update.nodeToUpdate))
             {
                 grid[n.gridX, n.gridY].movementWeight += (update.weight / 2);
@@ -59,7 +58,6 @@ public class Grid : MonoBehaviour
     {
         grid = new Node[gridSizeX, gridSizeY];
         Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y / 2;
-
         //Create a grid of nodes
         for (int x = 0; x < gridSizeX; x++)
         {

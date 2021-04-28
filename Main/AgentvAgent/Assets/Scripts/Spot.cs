@@ -5,12 +5,12 @@ using UnityEngine;
 public class Spot : MonoBehaviour
 {
     public Vector3 location;
-    bool occupied;
+    public bool occupied;
 
     void Start()
     {
         location = this.transform.position;
-        bool occupied = false;
+        occupied = false;
     }
 
     public bool getOccupation()
