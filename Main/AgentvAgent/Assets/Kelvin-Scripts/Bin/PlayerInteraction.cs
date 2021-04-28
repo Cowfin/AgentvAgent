@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] Image taskPopup;
+    [SerializeField] Text taskText;
     [SerializeField] Image interactCircle;
     [SerializeField] Camera cam;
 
@@ -39,11 +40,13 @@ public class PlayerInteraction : MonoBehaviour
         if (Physics.Raycast(ray, out hit, interactRange, taskLayerMask))
         {
             EnableTaskPopUp();
+            hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
+            taskText.text = database.tasks[hitTaskID].name;
             if (Input.GetKey(KeyCode.E))
             {
                 Debug.Log("Pressed E on task");
-                hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
                 Debug.Log("Time got: " + database.tasks[hitTaskID].completeTime);
+                //hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
                 totalTime = database.tasks[hitTaskID].completeTime;
                 TimerOn();
             }
