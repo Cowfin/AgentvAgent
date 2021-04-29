@@ -13,27 +13,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 2
-  lastUpdatedAtString: 2021-04-27T22:04:07.985+12:00
-  initializedAtString: 2021-04-27T19:29:54.942+12:00
+  lastUpdatedAtString: 2021-04-29T21:43:04.363+12:00
+  initializedAtString: 2021-04-29T16:55:27.475+12:00
   localBranches:
-  - name: Kelvin
-    tracking: origin/Kelvin
   - name: main
     tracking: origin/main
   - name: Noel
     tracking: origin/Noel
   remoteBranches:
-  - name: origin/Felix
-    tracking: '[None]'
   - name: origin/HEAD
-    tracking: '[None]'
-  - name: origin/Kelvin
-    tracking: '[None]'
-  - name: origin/main
-    tracking: '[None]'
-  - name: origin/Michael
-    tracking: '[None]'
-  - name: origin/Noel
     tracking: '[None]'
   remotes:
   - name: origin
@@ -45,15 +33,9 @@ MonoBehaviour:
     token: 
   localConfigBranches:
     keys:
-    - Kelvin
     - main
     - Noel
     values:
-    - name: Kelvin
-      remote:
-        name: origin
-        url: https://github.com/Cowfin/AgentvAgent.git
-      trackingBranch: Kelvin
     - name: main
       remote:
         name: origin
@@ -69,40 +51,10 @@ MonoBehaviour:
     - origin
     subKeys:
     - Values:
-      - Felix
       - HEAD
-      - Kelvin
-      - main
-      - Michael
-      - Noel
     subKeyValues:
     - Values:
-      - name: Felix
-        remote:
-          name: origin
-          url: https://github.com/Cowfin/AgentvAgent.git
-        trackingBranch: 
       - name: HEAD
-        remote:
-          name: origin
-          url: https://github.com/Cowfin/AgentvAgent.git
-        trackingBranch: 
-      - name: Kelvin
-        remote:
-          name: origin
-          url: https://github.com/Cowfin/AgentvAgent.git
-        trackingBranch: 
-      - name: main
-        remote:
-          name: origin
-          url: https://github.com/Cowfin/AgentvAgent.git
-        trackingBranch: 
-      - name: Michael
-        remote:
-          name: origin
-          url: https://github.com/Cowfin/AgentvAgent.git
-        trackingBranch: 
-      - name: Noel
         remote:
           name: origin
           url: https://github.com/Cowfin/AgentvAgent.git

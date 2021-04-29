@@ -6,14 +6,30 @@ using UnityEngine.UI;
     public class NetworkRoomPlayer : NetworkBehaviour
     {
         [Header("UI")]
-        [SerializeField] private GameObject agentMultiplayer = null;
-        [SerializeField] private TMP_Text[] userIDLobby = new TMP_Text[4];
-        [SerializeField] private TMP_Text[] userReadyConfirm = new TMP_Text[4];
-        [SerializeField] private Button lobbyInitiateGame = null;
+        [SerializeField]
+        private GameObject agentMultiplayer = null;
+        public Button changeButton;
+        public Button playerLeavesConfirm;
+        [SerializeField]
+        private TMP_Text[] userIDLobby = new TMP_Text[4];
+        public InputField userInitialInput;
+        public Button playerConfirmsAction;
+        [SerializeField]
+        private TMP_Text[] userReadyConfirm = new TMP_Text[4];
+        [SerializeField]
+        private Button lobbyInitiateGame = null;
+        public Button waitForUser;
 
-        [SyncVar(load = nameof(agentLobbyUserIDStatus))]
+    [SyncVar(hook = "Player Name")]
+    public string playerName = "";
+    [SyncVar(hook = "Player Color")]
+    public Color playerColor = Color.white;
+    [SyncVar(load = nameof(agentLobbyUserIDStatus))]
+    public Color OddRowColor = new Color(250.0f / 255.0f, 250.0f / 255.0f, 250.0f / 255.0f, 1.0f);
+    public Color EvenRowColor = new Color(180.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f, 1.0f);
 
-        public string computeNetwork = "Loading...";
+
+    public string computeNetwork = "Loading...";
 
         [SyncVar(load = nameof(agentLobbyPlayStatus))]
 
@@ -62,9 +78,26 @@ using UnityEngine.UI;
 
             verifyGamePlay();
         }
+    public void OnMyName(string newName)
+    {
+        playerName = newName;
+        userInitialInput.text = playerName;
+    }
 
-        public void agentLobbyPlayStatus(bool wasConfirmed, bool isConfirmed) => verifyGamePlay();
-        public void agentLobbyUserIDStatus(string userIDSet, string userIDConfirmed) => verifyGamePlay();
+    public void OnMyColor(Color newColor)
+    {
+        playerColor = newColor;
+        changeButton.GetComponent<Image>().color = newColor;
+    }
+
+    public void agentLobbyPlayStatus(bool wasConfirmed, bool isConfirmed)
+    {
+        verifyGamePlay();
+    }
+    public void agentLobbyUserIDStatus(string userIDSet, string userIDConfirmed)
+    {
+        verifyGamePlay();
+    }
 
         private void verifyGamePlay()
         {
@@ -81,8 +114,9 @@ using UnityEngine.UI;
 
                 return;
             }
-
-            for (int userName = 0; userName < userIDLobby.Length; userName++)
+       
+        
+        for (int userName = 0; userName < userIDLobby.Length; userName++)
             {
                 userIDLobby[userName].text = "Waiting For Player...";
                 userReadyConfirm[userName].text = string.Empty;
@@ -107,7 +141,16 @@ using UnityEngine.UI;
             lobbyInitiateGame.interactable = initiateAgentGame;
         }
 
-        [Command]
+    void colorChangeButton(Color nameColor)
+    {
+        ColorBlock styleOfColor = playerConfirmsAction.colors;
+        styleOfColor.normalColor = nameColor;
+        styleOfColor.pressedColor = nameColor;
+        styleOfColor.highlightedColor = nameColor;
+        styleOfColor.disabledColor = nameColor;
+        playerConfirmsAction.colors = styleOfColor;
+    }
+    [Command]
         private void SetUserNameLobby(string userAgentName)
         {
             computeNetwork = userAgentName;

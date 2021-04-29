@@ -11,6 +11,7 @@ namespace Mirror
     public class SyncVarAttribute : PropertyAttribute
     {
         public string load;
+        public string hook;
     }
 
     /// <summary>

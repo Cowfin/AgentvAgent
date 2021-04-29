@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class NetworkManagerLobby : NetworkManager
@@ -13,10 +14,35 @@ public class NetworkManagerLobby : NetworkManager
     [Scene]
     [SerializeField]
     private string agentMenu = string.Empty;
+    public struct NetworkInfo
+    {
+        public int Port;
+        public int TimeoutSec;
+    }
 
+    public NetworkInfo networkInfo = new NetworkInfo
+    {
+        Port = 233,
+        TimeoutSec = 300
+    };
     [Header("agentPlayableScenes")]
     [SerializeField]
     private int lobbyRoom = 1;
+    [Serializable]
+    public struct LobbyEvents
+    {
+        public UnityEvent lobby_just_joined;
+        public UnityEvent lobby_created;
+        public UnityEvent lobby_leaved;
+    }
+    [Serializable]
+    public struct SceneInfo
+    {
+        public string OnlineScene;
+        public string LobbyScene;
+        [HideInInspector] public string CurrentScene;
+    }
+    public bool CheckPlay = false;
 
     [SerializeField]
     private MapSet agentMap = null;
@@ -24,6 +50,8 @@ public class NetworkManagerLobby : NetworkManager
     [Header("lobbyInUse")]
     [SerializeField]
     private NetworkRoomPlayer agentLobbyUser = null;
+
+    public List<NetworkIdentity> SpawnablePrefab = new List<NetworkIdentity>();
 
     [Header("Game")]
     [SerializeField]
@@ -55,7 +83,10 @@ public class NetworkManagerLobby : NetworkManager
     } 
         = new List<NetworkGamePlayerLobby>();
 
-    public override void OnStartServer() => createResource = Resources.LoadAll<GameObject>("InitiateGame").ToList();
+    public override void OnStartServer()
+    {
+        createResource = Resources.LoadAll<GameObject>("InitiateGame").ToList();
+    }
 
     public override void OnStartClient()
     {
@@ -76,19 +107,9 @@ public class NetworkManagerLobby : NetworkManager
     protected const float userIdError = 0.5f;
 
     private bool userErrorFound;
-    private Guid matchId;
+    private Guid agentCounterID;
     private object matchName;
     private object playerCount;
-
-    /* Use this for initialization
-    protected virtual void Start()
-    {
-
-        GetComponent<UnityEngine.UI.Button>().onClick.AddListener(this.Click);
-
-    }
-    */
-
 
     private void Click()
     {
@@ -169,14 +190,7 @@ public class NetworkManagerLobby : NetworkManager
         UsersInLobby.Clear();
         PlayersReadyLobby.Clear();
     }
-   /* public void OnToggleClicked()
-    {
-        Guid matchId = default;
-        object canvasController = null;
-        object toggleButton = null;
-        
-    }
-    */
+ 
     public void confirmUserStatus()
     {
         foreach (var lobbyUser in UsersInLobby)
@@ -202,6 +216,20 @@ public class NetworkManagerLobby : NetworkManager
 
         return true;
     }
+    private struct Lobby
+    {
+   
+        public LobbyMembers[] m_Members;
+        public int m_MemberLimit;
+        public LobbyMetaData[] m_Data;
+    }
+
+    private struct LobbyMetaData
+    {
+        public string m_Key;
+        public string m_Value;
+    }
+
 
     public void userInitiatesGame()
     {
@@ -219,12 +247,11 @@ public class NetworkManagerLobby : NetworkManager
     }
     public Guid GetMatchId()
     {
-        return matchId;
+        return agentCounterID;
     }
 
     public override void agentLoadGame(string agentLoad)
     {
-        // From menu to game
         if (SceneManager.GetActiveScene().path == agentMenu && agentLoad.StartsWith("Scene_Map"))
         {
             for (int i = UsersInLobby.Count - 1; i >= 0; i--)
@@ -241,12 +268,14 @@ public class NetworkManagerLobby : NetworkManager
 
         base.agentLoadGame(agentLoad);
     }
-    public void SetMatchInfo(MatchInfo infos)
+
+    public void SetMatchInfo(MatchInfo gameDetails)
     {
-        matchId = infos.matchId;
-        matchName = "Match " + infos.matchId.ToString().Substring(0, 8);
-        playerCount = infos.players + " / " + infos.maxPlayers;
+        agentCounterID = gameDetails.matchId;
+        matchName = "Match " + gameDetails.matchId.ToString().Substring(0, 8);
+        playerCount = gameDetails.players + " / " + gameDetails.maxPlayers;
     }
+
     public override void OnServerSceneChanged(string sceneName)
     {
         if (sceneName.StartsWith("Scene_Map"))
@@ -258,7 +287,16 @@ public class NetworkManagerLobby : NetworkManager
             NetworkServer.Spawn(roundSystemInstance);
         }
     }
+    private struct LobbyMembers
+    {
 
+        public LobbyMetaData[] m_Data;
+    }
+
+    public void LobbyJoined()
+    {
+        CheckPlay = true;
+    }
     public override void agentConnectSuccess(NetworkConnection status)
     {
         base.agentConnectSuccess(status);
