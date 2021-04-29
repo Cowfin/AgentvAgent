@@ -7,6 +7,7 @@ namespace Mirror.Examples.NetworkRoom
     {
         public bool available = true;
         public RandomColor randomColor;
+        public global::MapSet spawner;
 
         void OnValidate()
         {

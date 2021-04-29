@@ -44,9 +44,6 @@ public class NetworkManagerLobby : NetworkManager
     }
     public bool CheckPlay = false;
 
-    [SerializeField]
-    private MapSet agentMap = null;
-
     [Header("lobbyInUse")]
     [SerializeField]
     private NetworkRoomPlayer agentLobbyUser = null;
@@ -63,7 +60,7 @@ public class NetworkManagerLobby : NetworkManager
     [SerializeField]
     private GameObject gameplayTask = null;
 
-    private MapHandler agentGameScene;
+
 
     public static event Action confirmPlayerConnection;
     public static event Action confirmPlayerLeaves;
@@ -239,10 +236,6 @@ public class NetworkManagerLobby : NetworkManager
             {
                 return;
             }
-
-            agentGameScene = new MapHandler(agentMap, lobbyRoom);
-
-            agentLoadGame(agentGameScene.agentSetsGame);
         }
     }
     public Guid GetMatchId()

@@ -66,10 +66,9 @@
     <Compile Include="Assets\ManagerScripts\MasterManager.cs" />
     <Compile Include="Assets\ManagerScripts\SingletonScriptableObject.cs" />
     <Compile Include="Assets\Scripts\AgentLobbyMenu.cs" />
-    <Compile Include="Assets\Scripts\AgentRoomConnection.cs" />
+    <Compile Include="Assets\Scripts\AgentRoomConnect.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\MapHandler.cs" />
-    <Compile Include="Assets\Scripts\MapSet.cs" />
+    <Compile Include="Assets\Scripts\MapSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\MultiplayerUsers.cs" />
     <Compile Include="Assets\Scripts\NetworkGamePlayerLobby.cs" />
     <Compile Include="Assets\Scripts\NetworkManagerLobby.cs" />
