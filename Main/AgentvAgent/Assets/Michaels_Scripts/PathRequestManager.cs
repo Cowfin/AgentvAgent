@@ -104,7 +104,7 @@ public class PathRequestManager : MonoBehaviour
         {
             List<int> availableGatherings = new List<int>();
             int gatherIndex = 0;
-            int iterations = 0;
+            //int iterations = 0;
             while (availableGatherings.Count <= 0)
             {
                 for (int i = 0; i < instance.gatheringSpots.Count; i++)
@@ -130,49 +130,50 @@ public class PathRequestManager : MonoBehaviour
             }
             int spotIndex = availableGatherings[UnityEngine.Random.Range(0, availableGatherings.Count - 1)];
             returnSpot = instance.gatheringSpots[gatherIndex].spots[spotIndex];
-            returnSpot.changeOccupation();
+            //returnSpot.changeOccupation();
+            returnSpot.occupationFull();
         }
         callback(new SpotResult(returnSpot, request.callback));
     }
 
 
-    //public static Spot availableSpot(Spot target)
-    //{
-    //    Spot returnSpot;
-    //    lock (instance.gatheringSpots)
-    //    {
-    //        List<int> availableGatherings = new List<int>();
-    //        int gatherIndex = 0;
-    //        while (availableGatherings.Capacity <= 0)
-    //        {
-    //            for (int i = 0; i < instance.gatheringSpots.Capacity; i++)
-    //            {
-    //                if (instance.gatheringSpots[i].checkStatus() == false)
-    //                {
-    //                    availableGatherings.Add(i);
-    //                }
-    //            }
-    //            gatherIndex = availableGatherings[UnityEngine.Random.Range(0, availableGatherings.Capacity - 1)];
-    //            availableGatherings.Clear();
-    //            GatheringSpot gathering = instance.gatheringSpots[gatherIndex];
-    //            for (int j = 0; j < instance.gatheringSpots[gatherIndex].spots.Length; j++)
-    //            {
-    //                if (instance.gatheringSpots[gatherIndex].spots[j].getOccupation() == false)
-    //                {
-    //                    if (target == null || target.location.Equals(instance.gatheringSpots[gatherIndex].spots[j].location) != true)
-    //                    {
-    //                        availableGatherings.Add(j);
-    //                    }
-    //                }
-    //            }
-    //        }
-    //        print("Spots Capacity : " + (availableGatherings.Capacity - 1));
-    //        int spotIndex = availableGatherings[UnityEngine.Random.Range(0, availableGatherings.Capacity - 1)];
-    //        returnSpot = instance.gatheringSpots[gatherIndex].spots[spotIndex];
-    //        returnSpot.changeOccupation();
-    //    }
-    //    return returnSpot;
-    //}
+    /*public static Spot availableSpot(Spot target)
+    {
+        Spot returnSpot;
+        lock (instance.gatheringSpots)
+        {
+            List<int> availableGatherings = new List<int>();
+            int gatherIndex = 0;
+            while (availableGatherings.Capacity <= 0)
+            {
+                for (int i = 0; i < instance.gatheringSpots.Capacity; i++)
+                {
+                    if (instance.gatheringSpots[i].checkStatus() == false)
+                    {
+                        availableGatherings.Add(i);
+                    }
+                }
+                gatherIndex = availableGatherings[UnityEngine.Random.Range(0, availableGatherings.Capacity - 1)];
+                availableGatherings.Clear();
+                GatheringSpot gathering = instance.gatheringSpots[gatherIndex];
+                for (int j = 0; j < instance.gatheringSpots[gatherIndex].spots.Length; j++)
+                {
+                    if (instance.gatheringSpots[gatherIndex].spots[j].getOccupation() == false)
+                    {
+                        if (target == null || target.location.Equals(instance.gatheringSpots[gatherIndex].spots[j].location) != true)
+                        {
+                            availableGatherings.Add(j);
+                        }
+                    }
+                }
+            }
+           print("Spots Capacity : " + (availableGatherings.Capacity - 1));
+            int spotIndex = availableGatherings[UnityEngine.Random.Range(0, availableGatherings.Capacity - 1)];
+            returnSpot = instance.gatheringSpots[gatherIndex].spots[spotIndex];
+            returnSpot.changeOccupation();
+        }
+        return returnSpot;
+    }*/
 
 
 
@@ -180,7 +181,8 @@ public class PathRequestManager : MonoBehaviour
     {
         lock (instance.gatheringSpots)
         {
-            spot.changeOccupation();
+            //spot.changeOccupation();
+            spot.occupationEmpty();
         }
     }
 }

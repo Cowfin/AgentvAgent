@@ -10,7 +10,7 @@ public class SpyInteraction : MonoBehaviour
     [SerializeField] Image interactCircle;
     [SerializeField] Camera cam;
 
-    float interactRange = 7.5f;
+    float interactRange = 5f;
     int taskLayerMask;
 
     GameObject gameController;

@@ -21,4 +21,15 @@ public class Spot : MonoBehaviour
     {
         occupied = !occupied;
     }
+
+    public void occupationEmpty()
+    {
+        occupied = false;
+    }
+
+    public void occupationFull()
+    {
+        occupied = true;
+    }
+
 }
