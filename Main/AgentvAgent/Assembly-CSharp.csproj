@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>C:\Program Files\Unity\Hub\Editor\2019.4.23f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.bat</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -49,10 +47,14 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
+    <UnityProjectGeneratorVersion>4.9.1.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2019.4.23f1</UnityVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -86,6 +88,75 @@
     <Compile Include="Assets\Michaels_Scripts\Pathfinding.cs" />
     <Compile Include="Assets\Michaels_Scripts\Spot.cs" />
     <Compile Include="Assets\Michaels_Scripts\Unit.cs" />
+    <Compile Include="Assets\Noel-Storage\ManagerScripts\GameSettings.cs" />
+    <Compile Include="Assets\Noel-Storage\ManagerScripts\MasterManager.cs" />
+    <Compile Include="Assets\Noel-Storage\ManagerScripts\SingletonScriptableObject.cs" />
+    <Compile Include="Assets\Noel-Storage\Plugins\WebSocket\SocketWebTcp.cs" />
+    <Compile Include="Assets\Noel-Storage\Plugins\WebSocket\WebSocket.cs" />
+    <Compile Include="Assets\Noel-Storage\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Noel-Storage\ScriptTemplates\51-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
+    <None Include="Assets\Noel-Storage\ScriptTemplates\53-Mirror__Network Observer-NewNetworkObserver.cs.txt" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
+    <None Include="Assets\Noel-Storage\ScriptTemplates\56-Mirror__Network Discovery-NewNetworkDiscovery.cs.txt" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Noel-Storage\Plugins\changes-library.txt" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Noel-Storage\ScriptTemplates\52-Mirror__Network Behaviour-NewNetworkBehaviour.cs.txt" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Noel-Storage\ScriptTemplates\55-Mirror__Network Room Player-NewNetworkRoomPlayer.cs.txt" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Noel-Storage\Plugins\Photon3Unity3D.xml" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Noel-Storage\ScriptTemplates\50-Mirror__Network Manager-NewNetworkManager.cs.txt" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Noel-Storage\ScriptTemplates\54-Mirror__Network Room Manager-NewNetworkRoomManager.cs.txt" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Noel-Storage\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.23f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -270,13 +341,19 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.23f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Assets/Noel-Storage/Plugins/Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Assets/Noel-Storage/Plugins/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.23f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -630,97 +707,97 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.23f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Cinemachine">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Monetization">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing.Stores">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Purchasing.Stores.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Purchasing.Stores.dll</HintPath>
     </Reference>
     <Reference Include="Purchasing.Common">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Purchasing.Common.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Purchasing.Common.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing.Codeless">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Purchasing.Codeless.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Purchasing.Codeless.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing.SecurityCore">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityCore.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityCore.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Advertisements.Editor.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing.SecurityStub">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityStub.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityStub.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
-      <HintPath>C:/Users/Michael/Documents/GitHub/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <HintPath>D:/skool/Uni/Y3/SDP/Assessment 1/AgentvAgent/Main/AgentvAgent/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
