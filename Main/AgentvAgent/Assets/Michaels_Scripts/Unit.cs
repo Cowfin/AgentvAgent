@@ -8,7 +8,7 @@ public class Unit : MonoBehaviour
     GatheringSpot spot;
     Spot target;
     bool drawPathGizmos;
-    float speed = 1f;
+    float speed = 2.5f;
     float turnSpeed = 5f;
     int weight = 4;
     Node[] path;

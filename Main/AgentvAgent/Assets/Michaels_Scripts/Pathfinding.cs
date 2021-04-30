@@ -6,11 +6,11 @@ using System;
 
 public class Pathfinding : MonoBehaviour
 {
-    Grid grid;
+    PathGrid grid;
 
     void Awake()
     {
-        grid = GetComponent<Grid>();
+        grid = GetComponent<PathGrid>();
     }
 
     public void FindPath(PathRequest request, Action<PathResult> callback)
