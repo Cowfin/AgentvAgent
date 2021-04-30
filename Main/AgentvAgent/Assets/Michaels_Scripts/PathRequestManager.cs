@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
-using UnityEngine;
+using System.Collections.Generic;
 using System.Threading;
+using UnityEngine;
 
 public class PathRequestManager : MonoBehaviour
 {
@@ -104,83 +103,50 @@ public class PathRequestManager : MonoBehaviour
         {
             List<int> availableGatherings = new List<int>();
             int gatherIndex = 0;
-            int iterations = 0;
             while (availableGatherings.Count <= 0)
             {
                 for (int i = 0; i < instance.gatheringSpots.Count; i++)
                 {
                     if (instance.gatheringSpots[i].checkStatus() == false)
                     {
+                        //print("ADDED : " + i);
+
                         availableGatherings.Add(i);
                     }
                 }
-                gatherIndex = availableGatherings[UnityEngine.Random.Range(0, availableGatherings.Count - 1)];
+                gatherIndex = availableGatherings[UnityEngine.Random.Range(0, availableGatherings.Count)];
+                //print("Picked : " + availableGatherings[gatherIndex]);
                 availableGatherings.Clear();
-                GatheringSpot gathering = instance.gatheringSpots[gatherIndex];
                 for (int j = 0; j < instance.gatheringSpots[gatherIndex].spots.Length; j++)
                 {
                     if (instance.gatheringSpots[gatherIndex].spots[j].getOccupation() == false)
                     {
                         if (request.inTarget == null || request.inTarget.location.Equals(instance.gatheringSpots[gatherIndex].spots[j].location) != true)
                         {
+                            if (instance.gatheringSpots[gatherIndex].spots[j].getOccupation() == true)
+                            {
+                                print("ERROR AI PATHING TO SAME SPOT");
+                            }
                             availableGatherings.Add(j);
                         }
                     }
                 }
             }
-            int spotIndex = availableGatherings[UnityEngine.Random.Range(0, availableGatherings.Count - 1)];
-            returnSpot = instance.gatheringSpots[gatherIndex].spots[spotIndex];
-            returnSpot.changeOccupation();
+            int spotIndex = availableGatherings[UnityEngine.Random.Range(0, availableGatherings.Count)];
+            lock (instance.gatheringSpots[gatherIndex].spots[spotIndex])
+            {
+                returnSpot = instance.gatheringSpots[gatherIndex].spots[spotIndex];
+                instance.gatheringSpots[gatherIndex].spots[spotIndex].occupationFull();
+            }
         }
         callback(new SpotResult(returnSpot, request.callback));
     }
-
-
-    //public static Spot availableSpot(Spot target)
-    //{
-    //    Spot returnSpot;
-    //    lock (instance.gatheringSpots)
-    //    {
-    //        List<int> availableGatherings = new List<int>();
-    //        int gatherIndex = 0;
-    //        while (availableGatherings.Capacity <= 0)
-    //        {
-    //            for (int i = 0; i < instance.gatheringSpots.Capacity; i++)
-    //            {
-    //                if (instance.gatheringSpots[i].checkStatus() == false)
-    //                {
-    //                    availableGatherings.Add(i);
-    //                }
-    //            }
-    //            gatherIndex = availableGatherings[UnityEngine.Random.Range(0, availableGatherings.Capacity - 1)];
-    //            availableGatherings.Clear();
-    //            GatheringSpot gathering = instance.gatheringSpots[gatherIndex];
-    //            for (int j = 0; j < instance.gatheringSpots[gatherIndex].spots.Length; j++)
-    //            {
-    //                if (instance.gatheringSpots[gatherIndex].spots[j].getOccupation() == false)
-    //                {
-    //                    if (target == null || target.location.Equals(instance.gatheringSpots[gatherIndex].spots[j].location) != true)
-    //                    {
-    //                        availableGatherings.Add(j);
-    //                    }
-    //                }
-    //            }
-    //        }
-    //        print("Spots Capacity : " + (availableGatherings.Capacity - 1));
-    //        int spotIndex = availableGatherings[UnityEngine.Random.Range(0, availableGatherings.Capacity - 1)];
-    //        returnSpot = instance.gatheringSpots[gatherIndex].spots[spotIndex];
-    //        returnSpot.changeOccupation();
-    //    }
-    //    return returnSpot;
-    //}
-
-
 
     public static void releaseSpot(Spot spot)
     {
         lock (instance.gatheringSpots)
         {
-            spot.changeOccupation();
+            spot.occupationEmpty();
         }
     }
 }

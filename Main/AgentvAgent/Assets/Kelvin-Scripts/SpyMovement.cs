@@ -7,9 +7,22 @@ public class SpyMovement : MonoBehaviour
     public CharacterController controller;
     public Transform cam; //Takes camera looking direction
 
-    public float speed = 6f;
+    public float speed = 2.5f;
     float turnSpeed = 5f;
     float turnSmoothVelocity;
+    Node currentNode;
+    Node oldNode;
+    int weight = 4;
+
+    void Start()
+    {
+        PathRequestManager.RequestWorldPosToNode(new WorldPosToNode(transform.position, OnNodeFound));
+        if (currentNode != null)
+        {
+            oldNode = currentNode;
+            PathRequestManager.UpdateGrid(new GridUpdate(currentNode, weight));
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,11 +42,27 @@ public class SpyMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime); //Moves the player
+
+            PathRequestManager.RequestWorldPosToNode(new WorldPosToNode(transform.position, OnNodeFound));
+            if (currentNode != oldNode)
+            {
+                PathRequestManager.UpdateGrid(new GridUpdate(oldNode, -weight));
+                PathRequestManager.UpdateGrid(new GridUpdate(currentNode, weight));
+                oldNode = currentNode;
+            }
         }
         else
         {
             //PLAYER IS IDLE
         }
 
+    }
+
+    public void OnNodeFound(Node node, bool conversionSuccessful)
+    {
+        if (conversionSuccessful)
+        {
+            currentNode = node;
+        }
     }
 }

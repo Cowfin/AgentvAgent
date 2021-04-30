@@ -18,18 +18,4 @@ public class GatheringSpot : MonoBehaviour
         }
         return full;
     }
-
-    public Spot assignSpot()
-    {
-        Spot spot = null;
-        foreach (Spot s in spots)
-        {
-            if (s.getOccupation() == false)
-            {
-                spot = s;
-            }
-        }
-        spot.changeOccupation();
-        return spot;
-    }
 }
