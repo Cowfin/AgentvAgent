@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/AgentMainMenu.unity
+- path: Assets/Scenes/AgentMainMenu.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
