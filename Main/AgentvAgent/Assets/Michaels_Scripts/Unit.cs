@@ -17,7 +17,10 @@ public class Unit : MonoBehaviour
     Node currentNode;
     bool changingPath;
     bool walking;
+    bool dying = false;
     float waitTime;
+    float rotationSpeed = 180f;
+    float degrees = 0;
     //Have each unit store the node it is currently standing on and check when it moves from it to update the grid
     void Start()
     {
@@ -28,6 +31,7 @@ public class Unit : MonoBehaviour
         PathRequestManager.AvailableSpot(new SpotRequest(null, OnSpotFound));
 
         PathRequestManager.RequestWorldPosToNode(new WorldPosToNode(transform.position, OnNodeFound));
+        
         if (currentNode != null)
         {
             PathRequestManager.UpdateGrid(new GridUpdate(currentNode, weight));
@@ -42,8 +46,19 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
-        if (walking == false)
+        if (dying)
         {
+            float step = rotationSpeed * Time.deltaTime;
+            degrees += step;
+            if(degrees < 90f) 
+            {
+                transform.Rotate(-step, 0, 0, Space.Self);
+            }
+        }
+
+        else if (walking == false)
+        {
+            Die();
             waitTime -= Time.deltaTime;
             if (waitTime <= 0)
             {
@@ -93,6 +108,13 @@ public class Unit : MonoBehaviour
             StopCoroutine("FollowPath");
             StartCoroutine("FollowPath");
         }
+    }
+
+    public void Die() 
+    {
+        StopCoroutine("FollowPath");
+        PathRequestManager.UpdateGrid(new GridUpdate(currentNode, -weight));
+        dying = true;
     }
 
     IEnumerator FollowPath()
