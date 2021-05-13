@@ -9,6 +9,8 @@ public class Task {
 
     public string name;
 
+    public string location;
+
     public GameObject taskObject;
 
     public float completeTime;
