@@ -13,14 +13,18 @@ public class GControl : MonoBehaviour
     private bool timerRunning;
     [SerializeField] Text timerText;
 
+    [SerializeField] Image endGamePopup;
+    [SerializeField] Text endGamePopupText;
+
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         currentTaskNumber = 0;
         UpdateTaskNumber();
-        setTimeRemaining(360);
+        setTimeRemaining(10);
         startTime();
         updateTime();
+        endGamePopupHide();
     }
 
     void Update()
@@ -35,6 +39,7 @@ public class GControl : MonoBehaviour
             else
             {
                 stopTime();
+                endGameHunterTimerWin();
                 timeRemaining = -1;
             }
         }
@@ -68,6 +73,34 @@ public class GControl : MonoBehaviour
     public void updateTime()
     {
         timerText.text = ((int)timeRemaining / 60).ToString() + ":" + ((int)timeRemaining % 60).ToString();
+    }
+
+    public void endGamePopupShow()
+    {
+        endGamePopup.gameObject.SetActive(true);
+    }
+
+    public void endGamePopupHide()
+    {
+        endGamePopup.gameObject.SetActive(false);       
+    }
+
+    public void endGameHunterTimerWin()
+    {
+        endGamePopupText.text = "Hunter Wins \nSpy Ran Out Of Time";
+        endGamePopupShow();
+    }
+
+    public void endGameHunterKillWin()
+    {
+        endGamePopupText.text = "Hunter Wins \nHunter caught the spy";
+        endGamePopupShow();
+    }
+
+    public void endGameSpyTaskWin()
+    {
+        endGamePopupText.text = "Spy Wins \nSpy completed their tasks";
+        endGamePopupShow();
     }
 
 }

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 2
-  lastUpdatedAtString: 2021-05-13T20:23:14.572+12:00
-  initializedAtString: 2021-05-13T19:17:11.457+12:00
+  lastUpdatedAtString: 2021-05-15T18:16:54.193+12:00
+  initializedAtString: 2021-05-15T18:16:53.411+12:00
   localBranches:
   - name: Kelvin
     tracking: origin/Kelvin
@@ -22,6 +22,8 @@ MonoBehaviour:
     tracking: origin/main
   remoteBranches:
   - name: origin/HEAD
+    tracking: '[None]'
+  - name: origin/Kelvin
     tracking: '[None]'
   remotes:
   - name: origin
@@ -52,9 +54,15 @@ MonoBehaviour:
     subKeys:
     - Values:
       - HEAD
+      - Kelvin
     subKeyValues:
     - Values:
       - name: HEAD
+        remote:
+          name: origin
+          url: https://github.com/Cowfin/AgentvAgent.git
+        trackingBranch: 
+      - name: Kelvin
         remote:
           name: origin
           url: https://github.com/Cowfin/AgentvAgent.git
