@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 6
-  lastUpdatedAtString: 2021-05-17T12:17:04.712+12:00
-  initializedAtString: 2021-05-17T11:39:39.522+12:00
+  lastUpdatedAtString: 2021-05-17T13:20:38.734+12:00
+  initializedAtString: 2021-05-17T13:12:32.065+12:00
   entries:
   - path: Main\AgentvAgent\Assets\Kelvin-Scripts\HunterInteraction.cs
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Assets\Kelvin-Scripts\HunterInteraction.cs
@@ -22,48 +22,56 @@ MonoBehaviour:
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
-  - path: Main\AgentvAgent\Assets\Michaels Storage\Character\characterT-pose.fbx
+  - path: Main\AgentvAgent\Assets\Michaels Storage\agentGunFire - 17_05_21, 12.46
+      PM.mp3
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Assets\Michaels
-      Storage\Character\characterT-pose.fbx
-    projectPath: Assets\Michaels Storage\Character\characterT-pose.fbx
+      Storage\agentGunFire - 17_05_21, 12.46 PM.mp3
+    projectPath: Assets\Michaels Storage\agentGunFire - 17_05_21, 12.46 PM.mp3
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Assets\Michaels Storage\Character\characterT-pose.fbx.meta
+  - path: Main\AgentvAgent\Assets\Michaels Storage\agentGunFire - 17_05_21, 12.46
+      PM.mp3.meta
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Assets\Michaels
-      Storage\Character\characterT-pose.fbx.meta
-    projectPath: Assets\Michaels Storage\Character\characterT-pose.fbx.meta
+      Storage\agentGunFire - 17_05_21, 12.46 PM.mp3.meta
+    projectPath: Assets\Michaels Storage\agentGunFire - 17_05_21, 12.46 PM.mp3.meta
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Assets\Michaels Storage\crowdscream.mp3
+  - path: Main\AgentvAgent\Assets\Michaels Storage\Agentscream- 17_05_21, 12.32 PM.mp3
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Assets\Michaels
-      Storage\crowdscream.mp3
-    projectPath: Assets\Michaels Storage\crowdscream.mp3
+      Storage\Agentscream- 17_05_21, 12.32 PM.mp3
+    projectPath: Assets\Michaels Storage\Agentscream- 17_05_21, 12.32 PM.mp3
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Assets\Michaels Storage\crowdscream.mp3.meta
+  - path: Main\AgentvAgent\Assets\Michaels Storage\Agentscream- 17_05_21, 12.32 PM.mp3.meta
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Assets\Michaels
-      Storage\crowdscream.mp3.meta
-    projectPath: Assets\Michaels Storage\crowdscream.mp3.meta
+      Storage\Agentscream- 17_05_21, 12.32 PM.mp3.meta
+    projectPath: Assets\Michaels Storage\Agentscream- 17_05_21, 12.32 PM.mp3.meta
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Assets\Michaels Storage\weapon_gun_1911_A_36.mp3
+  - path: Main\AgentvAgent\Assets\Michaels Storage\CrowdScreamFaded.mp3
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Assets\Michaels
-      Storage\weapon_gun_1911_A_36.mp3
-    projectPath: Assets\Michaels Storage\weapon_gun_1911_A_36.mp3
+      Storage\CrowdScreamFaded.mp3
+    projectPath: Assets\Michaels Storage\CrowdScreamFaded.mp3
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Assets\Michaels Storage\weapon_gun_1911_A_36.mp3.meta
+  - path: Main\AgentvAgent\Assets\Michaels Storage\CrowdScreamFaded.mp3.meta
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Assets\Michaels
-      Storage\weapon_gun_1911_A_36.mp3.meta
-    projectPath: Assets\Michaels Storage\weapon_gun_1911_A_36.mp3.meta
+      Storage\CrowdScreamFaded.mp3.meta
+    projectPath: Assets\Michaels Storage\CrowdScreamFaded.mp3.meta
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
+  - path: Main\AgentvAgent\Assets\Michaels_Scripts\Unit.cs
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Assets\Michaels_Scripts\Unit.cs
+    projectPath: Assets\Michaels_Scripts\Unit.cs
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
   - path: Main\AgentvAgent\Assets\Scenes\Mansion.unity
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Assets\Scenes\Mansion.unity
     projectPath: Assets\Scenes\Mansion.unity
@@ -76,153 +84,57 @@ MonoBehaviour:
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
-  - path: Main\AgentvAgent\Library\Artifacts\01\01f24550bf1cbdd08d61f812906a6ba2
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\01\01f24550bf1cbdd08d61f812906a6ba2
-    projectPath: Library\Artifacts\01\01f24550bf1cbdd08d61f812906a6ba2
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\03\03abe0fb0ca6f38a1449f45271e18f4f
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\03\03abe0fb0ca6f38a1449f45271e18f4f
-    projectPath: Library\Artifacts\03\03abe0fb0ca6f38a1449f45271e18f4f
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\04\040d4fe0f8d52b99b8ddbd131a31568d
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\04\040d4fe0f8d52b99b8ddbd131a31568d
-    projectPath: Library\Artifacts\04\040d4fe0f8d52b99b8ddbd131a31568d
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\05\05978a891f9bdb9bb9aa7161ee608767
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\05\05978a891f9bdb9bb9aa7161ee608767
-    projectPath: Library\Artifacts\05\05978a891f9bdb9bb9aa7161ee608767
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\08\082e69b859aab7cbe09491ccfcc43f32
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\08\082e69b859aab7cbe09491ccfcc43f32
-    projectPath: Library\Artifacts\08\082e69b859aab7cbe09491ccfcc43f32
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\0e\0e7a724ad2d23b6192bd18c39c76655d
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\0e\0e7a724ad2d23b6192bd18c39c76655d
-    projectPath: Library\Artifacts\0e\0e7a724ad2d23b6192bd18c39c76655d
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\0f\0f1d15588ccae0811526307813db70ac
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\0f\0f1d15588ccae0811526307813db70ac
-    projectPath: Library\Artifacts\0f\0f1d15588ccae0811526307813db70ac
+  - path: Main\AgentvAgent\Library\Artifacts\02\024d262518367268fada9a5862174a19
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\02\024d262518367268fada9a5862174a19
+    projectPath: Library\Artifacts\02\024d262518367268fada9a5862174a19
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\13\1388ba755c5ac903c5e53ddb377f3305
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\13\1388ba755c5ac903c5e53ddb377f3305
-    projectPath: Library\Artifacts\13\1388ba755c5ac903c5e53ddb377f3305
+  - path: Main\AgentvAgent\Library\Artifacts\17\17459368696189a788462b9f224ec810
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\17\17459368696189a788462b9f224ec810
+    projectPath: Library\Artifacts\17\17459368696189a788462b9f224ec810
     originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\1a\1a6b14eaca196f006e37eb188d9f89be
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\1a\1a6b14eaca196f006e37eb188d9f89be
-    projectPath: Library\Artifacts\1a\1a6b14eaca196f006e37eb188d9f89be
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: Main\AgentvAgent\Library\Artifacts\18\185c7933dd4990e6e68b29d728d676d3
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\18\185c7933dd4990e6e68b29d728d676d3
+    projectPath: Library\Artifacts\18\185c7933dd4990e6e68b29d728d676d3
     originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
+    indexStatus: 1
+    workTreeStatus: 1
   - path: Main\AgentvAgent\Library\Artifacts\20\20ed51b73bbe0cada86b3f34a23c153c
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\20\20ed51b73bbe0cada86b3f34a23c153c
     projectPath: Library\Artifacts\20\20ed51b73bbe0cada86b3f34a23c153c
     originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\22\2222840c157269bd11aa22f8b4726aac
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\22\2222840c157269bd11aa22f8b4726aac
-    projectPath: Library\Artifacts\22\2222840c157269bd11aa22f8b4726aac
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\24\24a6cc9ca4bab7ccfb880eaf58e2f6ec
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\24\24a6cc9ca4bab7ccfb880eaf58e2f6ec
-    projectPath: Library\Artifacts\24\24a6cc9ca4bab7ccfb880eaf58e2f6ec
-    originalPath: 
     indexStatus: 0
     workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\28\28d2d7e33f2af416dd8d910acde1bb40
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\28\28d2d7e33f2af416dd8d910acde1bb40
-    projectPath: Library\Artifacts\28\28d2d7e33f2af416dd8d910acde1bb40
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\30\309742343a96ecbc6e67f193cba697a0
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\30\309742343a96ecbc6e67f193cba697a0
-    projectPath: Library\Artifacts\30\309742343a96ecbc6e67f193cba697a0
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\35\356520b3aff1bf9b82c7c6b76bbef1bd
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\35\356520b3aff1bf9b82c7c6b76bbef1bd
-    projectPath: Library\Artifacts\35\356520b3aff1bf9b82c7c6b76bbef1bd
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\3c\3c19e6ccaa739cfe7e8587aec126f83a
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\3c\3c19e6ccaa739cfe7e8587aec126f83a
-    projectPath: Library\Artifacts\3c\3c19e6ccaa739cfe7e8587aec126f83a
+  - path: Main\AgentvAgent\Library\Artifacts\2a\2ab425f40f1c291d5dd54ca808207a38
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\2a\2ab425f40f1c291d5dd54ca808207a38
+    projectPath: Library\Artifacts\2a\2ab425f40f1c291d5dd54ca808207a38
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\4a\4a475043499d0f0d2c7e4900f293d0d0
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\4a\4a475043499d0f0d2c7e4900f293d0d0
-    projectPath: Library\Artifacts\4a\4a475043499d0f0d2c7e4900f293d0d0
+  - path: Main\AgentvAgent\Library\Artifacts\38\38220da7a13084e0dc07842e38e929d3
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\38\38220da7a13084e0dc07842e38e929d3
+    projectPath: Library\Artifacts\38\38220da7a13084e0dc07842e38e929d3
     originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\4d\4d653275a854b739128ff52ef25196de
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\4d\4d653275a854b739128ff52ef25196de
-    projectPath: Library\Artifacts\4d\4d653275a854b739128ff52ef25196de
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: Main\AgentvAgent\Library\Artifacts\3b\3b53687684289b81958e806850acc291
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\3b\3b53687684289b81958e806850acc291
+    projectPath: Library\Artifacts\3b\3b53687684289b81958e806850acc291
     originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
+    indexStatus: 1
+    workTreeStatus: 1
   - path: Main\AgentvAgent\Library\Artifacts\53\5366ac5ea25094cf9849eee6b0647022
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\53\5366ac5ea25094cf9849eee6b0647022
     projectPath: Library\Artifacts\53\5366ac5ea25094cf9849eee6b0647022
     originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\56\561ea1b3ac49e6663c8556be7a1c65c3
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\56\561ea1b3ac49e6663c8556be7a1c65c3
-    projectPath: Library\Artifacts\56\561ea1b3ac49e6663c8556be7a1c65c3
-    originalPath: 
     indexStatus: 0
     workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\56\565c4ff6b0921c42d502e2f7c088d402
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\56\565c4ff6b0921c42d502e2f7c088d402
-    projectPath: Library\Artifacts\56\565c4ff6b0921c42d502e2f7c088d402
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\5b\5bfca30fa09ac5e1fb8cabd4fe77696c
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\5b\5bfca30fa09ac5e1fb8cabd4fe77696c
-    projectPath: Library\Artifacts\5b\5bfca30fa09ac5e1fb8cabd4fe77696c
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\5c\5cc3387e6789a7121f847ec5c20c573a
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\5c\5cc3387e6789a7121f847ec5c20c573a
-    projectPath: Library\Artifacts\5c\5cc3387e6789a7121f847ec5c20c573a
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\5e\5eafaec6cad26a9cc9da85bbbbd11be0
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\5e\5eafaec6cad26a9cc9da85bbbbd11be0
-    projectPath: Library\Artifacts\5e\5eafaec6cad26a9cc9da85bbbbd11be0
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\67\67dcd3abbd537ceb10ffed6bea72f324
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\67\67dcd3abbd537ceb10ffed6bea72f324
-    projectPath: Library\Artifacts\67\67dcd3abbd537ceb10ffed6bea72f324
+  - path: Main\AgentvAgent\Library\Artifacts\59\599b05aaea08c0aff428045f17077960
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\59\599b05aaea08c0aff428045f17077960
+    projectPath: Library\Artifacts\59\599b05aaea08c0aff428045f17077960
     originalPath: 
     indexStatus: 0
     workTreeStatus: 5
@@ -230,185 +142,65 @@ MonoBehaviour:
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\68\686a992aeb3903d85232695f1deeac05
     projectPath: Library\Artifacts\68\686a992aeb3903d85232695f1deeac05
     originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\6c\6c1f99be21cd48214d1c329b9e2260e7
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\6c\6c1f99be21cd48214d1c329b9e2260e7
-    projectPath: Library\Artifacts\6c\6c1f99be21cd48214d1c329b9e2260e7
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\6c\6cc22c544a3722b513bdb33842c62365
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\6c\6cc22c544a3722b513bdb33842c62365
-    projectPath: Library\Artifacts\6c\6cc22c544a3722b513bdb33842c62365
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\70\70582fbbb1c66fe8b98a0b1b29565587
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\70\70582fbbb1c66fe8b98a0b1b29565587
-    projectPath: Library\Artifacts\70\70582fbbb1c66fe8b98a0b1b29565587
-    originalPath: 
     indexStatus: 0
     workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\79\79a7c9ef6ad3187572d3c9a5e8b7290f
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\79\79a7c9ef6ad3187572d3c9a5e8b7290f
-    projectPath: Library\Artifacts\79\79a7c9ef6ad3187572d3c9a5e8b7290f
+  - path: Main\AgentvAgent\Library\Artifacts\7d\7d1fc6ab5a097eece6acbf4434ab39cd
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\7d\7d1fc6ab5a097eece6acbf4434ab39cd
+    projectPath: Library\Artifacts\7d\7d1fc6ab5a097eece6acbf4434ab39cd
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\7a\7abda43e2669f47447f2e71096165441
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\7a\7abda43e2669f47447f2e71096165441
-    projectPath: Library\Artifacts\7a\7abda43e2669f47447f2e71096165441
+  - path: Main\AgentvAgent\Library\Artifacts\7e\7ee9f671df2ab626d4d95bdc9c6e3f9f
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\7e\7ee9f671df2ab626d4d95bdc9c6e3f9f
+    projectPath: Library\Artifacts\7e\7ee9f671df2ab626d4d95bdc9c6e3f9f
     originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
+    indexStatus: 1
+    workTreeStatus: 1
   - path: Main\AgentvAgent\Library\Artifacts\86\865387a62d669194d3be90266a58c8d0
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\86\865387a62d669194d3be90266a58c8d0
     projectPath: Library\Artifacts\86\865387a62d669194d3be90266a58c8d0
     originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\88\8802ea029c00fa451fdc977a89591598
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\88\8802ea029c00fa451fdc977a89591598
-    projectPath: Library\Artifacts\88\8802ea029c00fa451fdc977a89591598
+    indexStatus: 0
+    workTreeStatus: 5
+  - path: Main\AgentvAgent\Library\Artifacts\95\95da2c616fe52ee91c39baf4ab838a84
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\95\95da2c616fe52ee91c39baf4ab838a84
+    projectPath: Library\Artifacts\95\95da2c616fe52ee91c39baf4ab838a84
     originalPath: 
     indexStatus: 0
     workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\88\88cacc6b9272e5292819cdc314ffd39f
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\88\88cacc6b9272e5292819cdc314ffd39f
-    projectPath: Library\Artifacts\88\88cacc6b9272e5292819cdc314ffd39f
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\8b\8b029b0934a3a67a2a8c07b95e37b792
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\8b\8b029b0934a3a67a2a8c07b95e37b792
-    projectPath: Library\Artifacts\8b\8b029b0934a3a67a2a8c07b95e37b792
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\8d\8d3e4d7c0e7e6956d5f22a7482d360b5
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\8d\8d3e4d7c0e7e6956d5f22a7482d360b5
-    projectPath: Library\Artifacts\8d\8d3e4d7c0e7e6956d5f22a7482d360b5
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\8d\8da2d6ff6ed7dbae2de5d440f5145b3d
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\8d\8da2d6ff6ed7dbae2de5d440f5145b3d
-    projectPath: Library\Artifacts\8d\8da2d6ff6ed7dbae2de5d440f5145b3d
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\8e\8ee2511222ebdd8b92e53cd333dada68
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\8e\8ee2511222ebdd8b92e53cd333dada68
-    projectPath: Library\Artifacts\8e\8ee2511222ebdd8b92e53cd333dada68
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\92\927435ddf28c1e17a1aa60fcb0787b23
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\92\927435ddf28c1e17a1aa60fcb0787b23
-    projectPath: Library\Artifacts\92\927435ddf28c1e17a1aa60fcb0787b23
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\92\92928167faf18d0e459d086054124128
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\92\92928167faf18d0e459d086054124128
-    projectPath: Library\Artifacts\92\92928167faf18d0e459d086054124128
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\a1\a1f81f18a587926cc927a2bfc163ff69
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\a1\a1f81f18a587926cc927a2bfc163ff69
-    projectPath: Library\Artifacts\a1\a1f81f18a587926cc927a2bfc163ff69
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\a2\a256eef46b8a31e80d4b9a18862fc29a
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\a2\a256eef46b8a31e80d4b9a18862fc29a
-    projectPath: Library\Artifacts\a2\a256eef46b8a31e80d4b9a18862fc29a
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\ab\ab8443525218142db6a9a18f9e296d63
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\ab\ab8443525218142db6a9a18f9e296d63
-    projectPath: Library\Artifacts\ab\ab8443525218142db6a9a18f9e296d63
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\b2\b2c59290d9f0ac1f094bf44dc8a005e8
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\b2\b2c59290d9f0ac1f094bf44dc8a005e8
-    projectPath: Library\Artifacts\b2\b2c59290d9f0ac1f094bf44dc8a005e8
+  - path: Main\AgentvAgent\Library\Artifacts\96\9615b0634ea3678e13132e52cfa42ef6
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\96\9615b0634ea3678e13132e52cfa42ef6
+    projectPath: Library\Artifacts\96\9615b0634ea3678e13132e52cfa42ef6
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\b3\b38fe81a85c1effb5f4053ec3bb6119a
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\b3\b38fe81a85c1effb5f4053ec3bb6119a
-    projectPath: Library\Artifacts\b3\b38fe81a85c1effb5f4053ec3bb6119a
+  - path: Main\AgentvAgent\Library\Artifacts\cd\cd06fc4efcb5b818ca2453c53012dba6
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\cd\cd06fc4efcb5b818ca2453c53012dba6
+    projectPath: Library\Artifacts\cd\cd06fc4efcb5b818ca2453c53012dba6
     originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\c4\c480fe406c8755740e23ce422a19121d
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\c4\c480fe406c8755740e23ce422a19121d
-    projectPath: Library\Artifacts\c4\c480fe406c8755740e23ce422a19121d
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: Main\AgentvAgent\Library\Artifacts\ce\cef531edb5d7546f9bf90b412ff7794d
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\ce\cef531edb5d7546f9bf90b412ff7794d
+    projectPath: Library\Artifacts\ce\cef531edb5d7546f9bf90b412ff7794d
     originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\cd\cd85918608dc4fa23383bba7ec1b7136
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\cd\cd85918608dc4fa23383bba7ec1b7136
-    projectPath: Library\Artifacts\cd\cd85918608dc4fa23383bba7ec1b7136
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: Main\AgentvAgent\Library\Artifacts\d3\d3f675ac9ad7947aee99f9b6be9587e3
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\d3\d3f675ac9ad7947aee99f9b6be9587e3
+    projectPath: Library\Artifacts\d3\d3f675ac9ad7947aee99f9b6be9587e3
     originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\d0\d07e654bb26c4b18e3453cf62b42e8db
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\d0\d07e654bb26c4b18e3453cf62b42e8db
-    projectPath: Library\Artifacts\d0\d07e654bb26c4b18e3453cf62b42e8db
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: Main\AgentvAgent\Library\Artifacts\d4\d47fcf09b0f79acdb62e880561a43999
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\d4\d47fcf09b0f79acdb62e880561a43999
+    projectPath: Library\Artifacts\d4\d47fcf09b0f79acdb62e880561a43999
     originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\de\de7974742a303342dbd1470805560ce0
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\de\de7974742a303342dbd1470805560ce0
-    projectPath: Library\Artifacts\de\de7974742a303342dbd1470805560ce0
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\e1\e168a4fc68fc9075f037bd9009b15e93
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\e1\e168a4fc68fc9075f037bd9009b15e93
-    projectPath: Library\Artifacts\e1\e168a4fc68fc9075f037bd9009b15e93
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\e4\e468ba3254cc0d1c765aff1c808ad71e
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\e4\e468ba3254cc0d1c765aff1c808ad71e
-    projectPath: Library\Artifacts\e4\e468ba3254cc0d1c765aff1c808ad71e
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
+    indexStatus: 1
+    workTreeStatus: 1
   - path: Main\AgentvAgent\Library\Artifacts\e4\e47879c6a335f7f7884ad15ab7c17c16
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\e4\e47879c6a335f7f7884ad15ab7c17c16
     projectPath: Library\Artifacts\e4\e47879c6a335f7f7884ad15ab7c17c16
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: Main\AgentvAgent\Library\Artifacts\e4\e4e53168de7554bfbbd7cf1b70fa219d
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\e4\e4e53168de7554bfbbd7cf1b70fa219d
-    projectPath: Library\Artifacts\e4\e4e53168de7554bfbbd7cf1b70fa219d
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\e6\e6ca9a43347b6d7d1059afe5046ea573
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\e6\e6ca9a43347b6d7d1059afe5046ea573
-    projectPath: Library\Artifacts\e6\e6ca9a43347b6d7d1059afe5046ea573
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\ec\eca84a2e4f07afd4768f6ff97902c966
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\ec\eca84a2e4f07afd4768f6ff97902c966
-    projectPath: Library\Artifacts\ec\eca84a2e4f07afd4768f6ff97902c966
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: Main\AgentvAgent\Library\Artifacts\f3\f36f05ec4d7031e6301de0685d467fab
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\f3\f36f05ec4d7031e6301de0685d467fab
-    projectPath: Library\Artifacts\f3\f36f05ec4d7031e6301de0685d467fab
     originalPath: 
     indexStatus: 0
     workTreeStatus: 5
@@ -416,11 +208,23 @@ MonoBehaviour:
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\f4\f470be0dab52e4bab99e8fd0ce6bccde
     projectPath: Library\Artifacts\f4\f470be0dab52e4bab99e8fd0ce6bccde
     originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
+    indexStatus: 0
+    workTreeStatus: 5
   - path: Main\AgentvAgent\Library\Artifacts\f9\f9208b4a1a937449302d2f500bc4844a
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\f9\f9208b4a1a937449302d2f500bc4844a
     projectPath: Library\Artifacts\f9\f9208b4a1a937449302d2f500bc4844a
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 5
+  - path: Main\AgentvAgent\Library\Artifacts\ff\ff009369eaa3cf6f20a13802216ba39d
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\ff\ff009369eaa3cf6f20a13802216ba39d
+    projectPath: Library\Artifacts\ff\ff009369eaa3cf6f20a13802216ba39d
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: Main\AgentvAgent\Library\Artifacts\ff\ffe24be6f7943b0f4258d2e1557ac487
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\Artifacts\ff\ffe24be6f7943b0f4258d2e1557ac487
+    projectPath: Library\Artifacts\ff\ffe24be6f7943b0f4258d2e1557ac487
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
@@ -433,12 +237,6 @@ MonoBehaviour:
   - path: Main\AgentvAgent\Library\gfu\cache\branches.yaml
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\gfu\cache\branches.yaml
     projectPath: Library\gfu\cache\branches.yaml
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: Main\AgentvAgent\Library\gfu\cache\gitlocks.yaml
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\gfu\cache\gitlocks.yaml
-    projectPath: Library\gfu\cache\gitlocks.yaml
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
@@ -472,12 +270,6 @@ MonoBehaviour:
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
-  - path: Main\AgentvAgent\Library\PackageCache\com.unity.test-framework@1.1.22\package.json
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\PackageCache\com.unity.test-framework@1.1.22\package.json
-    projectPath: Library\PackageCache\com.unity.test-framework@1.1.22\package.json
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
   - path: Main\AgentvAgent\Library\ScriptAssemblies\Assembly-CSharp.dll
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\ScriptAssemblies\Assembly-CSharp.dll
     projectPath: Library\ScriptAssemblies\Assembly-CSharp.dll
@@ -496,36 +288,6 @@ MonoBehaviour:
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
-  - path: Main\AgentvAgent\Library\ShaderCache\EditorEncounteredVariants
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\ShaderCache\EditorEncounteredVariants
-    projectPath: Library\ShaderCache\EditorEncounteredVariants
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: Main\AgentvAgent\Library\shadercompiler-UnityShaderCompiler.exe1.log
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\shadercompiler-UnityShaderCompiler.exe1.log
-    projectPath: Library\shadercompiler-UnityShaderCompiler.exe1.log
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: Main\AgentvAgent\Library\shadercompiler-UnityShaderCompiler.exe2.log
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\shadercompiler-UnityShaderCompiler.exe2.log
-    projectPath: Library\shadercompiler-UnityShaderCompiler.exe2.log
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: Main\AgentvAgent\Library\shadercompiler-UnityShaderCompiler.exe5.log
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\shadercompiler-UnityShaderCompiler.exe5.log
-    projectPath: Library\shadercompiler-UnityShaderCompiler.exe5.log
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: Main\AgentvAgent\Library\shadercompiler-UnityShaderCompiler.exe6.log
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\shadercompiler-UnityShaderCompiler.exe6.log
-    projectPath: Library\shadercompiler-UnityShaderCompiler.exe6.log
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
   - path: Main\AgentvAgent\Library\SourceAssetDB
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\SourceAssetDB
     projectPath: Library\SourceAssetDB
@@ -535,18 +297,6 @@ MonoBehaviour:
   - path: Main\AgentvAgent\Library\StateCache\Hierarchy\4c969a-mainStage.json
     fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\StateCache\Hierarchy\4c969a-mainStage.json
     projectPath: Library\StateCache\Hierarchy\4c969a-mainStage.json
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: Main\AgentvAgent\Library\StateCache\SceneView\cc2798-mainStage.json
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Library\StateCache\SceneView\cc2798-mainStage.json
-    projectPath: Library\StateCache\SceneView\cc2798-mainStage.json
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: Main\AgentvAgent\Packages\packages-lock.json
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Packages\packages-lock.json
-    projectPath: Packages\packages-lock.json
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
@@ -568,33 +318,27 @@ MonoBehaviour:
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Temp\UnityTempFile-04299fab6512ec5488003ab035aecb3e
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Temp\UnityTempFile-04299fab6512ec5488003ab035aecb3e
-    projectPath: Temp\UnityTempFile-04299fab6512ec5488003ab035aecb3e
+  - path: Main\AgentvAgent\Temp\UnityTempFile-8560de80ca00ed04a94b315c262b50d1
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Temp\UnityTempFile-8560de80ca00ed04a94b315c262b50d1
+    projectPath: Temp\UnityTempFile-8560de80ca00ed04a94b315c262b50d1
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Temp\UnityTempFile-0b66d7fdaaf110c4695c4a77dc667580
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Temp\UnityTempFile-0b66d7fdaaf110c4695c4a77dc667580
-    projectPath: Temp\UnityTempFile-0b66d7fdaaf110c4695c4a77dc667580
+  - path: Main\AgentvAgent\Temp\UnityTempFile-94585cd1a4de40e4fbe60855bb899412
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Temp\UnityTempFile-94585cd1a4de40e4fbe60855bb899412
+    projectPath: Temp\UnityTempFile-94585cd1a4de40e4fbe60855bb899412
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Temp\UnityTempFile-f49a59b3e94f03d48b439869213ca024
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Temp\UnityTempFile-f49a59b3e94f03d48b439869213ca024
-    projectPath: Temp\UnityTempFile-f49a59b3e94f03d48b439869213ca024
+  - path: Main\AgentvAgent\Temp\UnityTempFile-ad28ff3f7187e55408265d7038dcb5d8
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Temp\UnityTempFile-ad28ff3f7187e55408265d7038dcb5d8
+    projectPath: Temp\UnityTempFile-ad28ff3f7187e55408265d7038dcb5d8
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Temp\UnityTempFile-fcde2004dff507746a854bbc72a427ec
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Temp\UnityTempFile-fcde2004dff507746a854bbc72a427ec
-    projectPath: Temp\UnityTempFile-fcde2004dff507746a854bbc72a427ec
+  - path: Main\AgentvAgent\Temp\UnityTempFile-ef2af5c3138e81745b18d104711dd551
+    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Temp\UnityTempFile-ef2af5c3138e81745b18d104711dd551
+    projectPath: Temp\UnityTempFile-ef2af5c3138e81745b18d104711dd551
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: Main\AgentvAgent\Unity.gitignore
-    fullPath: C:\Users\mritc\OneDrive\Documents\GitHub\AgentvAgent\Main\AgentvAgent\Unity.gitignore
-    projectPath: Unity.gitignore
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5

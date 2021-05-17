@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CapsuleCollider))]
 public class Unit : MonoBehaviour
 {
     List<GatheringSpot> gatheringSpots;
+    CapsuleCollider collider;
     GatheringSpot spot;
     Spot target;
     bool drawPathGizmos;
@@ -24,6 +26,7 @@ public class Unit : MonoBehaviour
     //Have each unit store the node it is currently standing on and check when it moves from it to update the grid
     void Start()
     {
+        collider = this.GetComponent<CapsuleCollider>();
         drawPathGizmos = PathRequestManager.DrawPathGizmos();
         //gatheringSpots = PathRequestManager.RequestGatheringSpots();
 
@@ -48,6 +51,7 @@ public class Unit : MonoBehaviour
     {
         if (dying)
         {
+            collider.enabled = false;
             float step = rotationSpeed * Time.deltaTime;
             degrees += step;
             if(degrees < 90f) 

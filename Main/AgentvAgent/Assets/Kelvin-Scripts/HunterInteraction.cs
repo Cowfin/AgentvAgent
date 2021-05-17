@@ -9,6 +9,7 @@ public class HunterInteraction : MonoBehaviour
     [SerializeField] Image tunnelVision;
     [SerializeField] Image tunnelVisionGrey;
     [SerializeField] AudioSource gunShot;
+    [SerializeField] AudioSource crowdScream;
 
     float interactRange = 1000f;
     int taskLayerMask;
@@ -18,7 +19,7 @@ public class HunterInteraction : MonoBehaviour
     bool fadeOut;
 
     float fadeInTime = 0.1f;
-    float holdTime = 7f;
+    float holdTime = 10f;
     float fadeOutTime = 3f;
     float fadeTimer = 0f;
 
@@ -101,6 +102,7 @@ public class HunterInteraction : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 gunShot.Play();
+                crowdScream.Play();
                 //if player hit then kill player
 
                 resetTunnelVision();
