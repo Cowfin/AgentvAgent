@@ -8,6 +8,7 @@ public class HunterInteraction : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] Image tunnelVision;
     [SerializeField] Image tunnelVisionGrey;
+    [SerializeField] AudioSource gunShot;
 
     float interactRange = 1000f;
     int taskLayerMask;
@@ -99,6 +100,7 @@ public class HunterInteraction : MonoBehaviour
             //Aiming
             if (Input.GetMouseButtonDown(0))
             {
+                gunShot.Play();
                 //if player hit then kill player
 
                 resetTunnelVision();
