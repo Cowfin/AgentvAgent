@@ -13,17 +13,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 2
-  lastUpdatedAtString: 2021-05-15T23:57:12.465+12:00
-  initializedAtString: 2021-05-15T20:49:21.551+12:00
+  lastUpdatedAtString: 2021-05-19T13:31:08.466+12:00
+  initializedAtString: 2021-05-19T11:53:24.198+12:00
   localBranches:
   - name: Kelvin
     tracking: origin/Kelvin
   - name: main
     tracking: origin/main
+  - name: Michael
+    tracking: origin/Michael
   remoteBranches:
   - name: origin/HEAD
     tracking: '[None]'
   - name: origin/Kelvin
+    tracking: '[None]'
+  - name: origin/Michael
     tracking: '[None]'
   remotes:
   - name: origin
@@ -37,6 +41,7 @@ MonoBehaviour:
     keys:
     - Kelvin
     - main
+    - Michael
     values:
     - name: Kelvin
       remote:
@@ -48,6 +53,11 @@ MonoBehaviour:
         name: origin
         url: https://github.com/Cowfin/AgentvAgent.git
       trackingBranch: main
+    - name: Michael
+      remote:
+        name: origin
+        url: https://github.com/Cowfin/AgentvAgent.git
+      trackingBranch: Michael
   remoteConfigBranches:
     keys:
     - origin
@@ -55,6 +65,7 @@ MonoBehaviour:
     - Values:
       - HEAD
       - Kelvin
+      - Michael
     subKeyValues:
     - Values:
       - name: HEAD
@@ -63,6 +74,11 @@ MonoBehaviour:
           url: https://github.com/Cowfin/AgentvAgent.git
         trackingBranch: 
       - name: Kelvin
+        remote:
+          name: origin
+          url: https://github.com/Cowfin/AgentvAgent.git
+        trackingBranch: 
+      - name: Michael
         remote:
           name: origin
           url: https://github.com/Cowfin/AgentvAgent.git

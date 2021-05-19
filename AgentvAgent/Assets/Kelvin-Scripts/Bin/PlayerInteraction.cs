@@ -46,7 +46,6 @@ public class PlayerInteraction : MonoBehaviour
             {
                 Debug.Log("Pressed E on task");
                 Debug.Log("Time got: " + database.tasks[hitTaskID].completeTime);
-                //hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
                 totalTime = database.tasks[hitTaskID].completeTime;
                 TimerOn();
             }
@@ -66,7 +65,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 DisableCircle();
                 circleFill = 0;
-                gControl.AddTaskNumber();
+                gControl.setTaskComplete(hitTaskID);
             }
         }
 

@@ -15,4 +15,6 @@ public class Task {
 
     public float completeTime;
 
+    public bool taskCompleted;
+
 }

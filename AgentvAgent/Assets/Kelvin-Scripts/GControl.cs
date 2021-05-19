@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class GControl : MonoBehaviour
 {
-    int currentTaskNumber;
     GameController gameController;
-    [SerializeField] Text taskNumber;
+    TaskDatabase database;
+    ShuffleTasks shuffleTasks;
 
     private float timeRemaining;
     private bool timerRunning;
@@ -16,11 +16,30 @@ public class GControl : MonoBehaviour
     [SerializeField] Image endGamePopup;
     [SerializeField] Text endGamePopupText;
 
+    private static int TOTAL_TASK_NUMBER = 10;
+    private int[] taskIDList;
+    private List<Task> gameTaskList = new List<Task>();
+    private List<Text> gameTaskListText = new List<Text>();
+
+    [SerializeField] Text textTask1;
+    [SerializeField] Text textTask2;
+    [SerializeField] Text textTask3;
+    [SerializeField] Text textTask4;
+    [SerializeField] Text textTask5;
+    [SerializeField] Text textTask6;
+    [SerializeField] Text textTask7;
+    [SerializeField] Text textTask8;
+    [SerializeField] Text textTask9;
+    [SerializeField] Text textTask10;
+    
+
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        currentTaskNumber = 0;
-        UpdateTaskNumber();
+        database = gameController.GetComponent<TaskDatabase>();
+        createTaskList();
+        randomiseTask(TOTAL_TASK_NUMBER);
+        assignTaskList();
         setTimeRemaining(10);
         startTime();
         updateTime();
@@ -45,16 +64,6 @@ public class GControl : MonoBehaviour
         }
     }
 
-    public void AddTaskNumber()
-    {
-        currentTaskNumber++;
-        UpdateTaskNumber();
-    }
-
-    public void UpdateTaskNumber()
-    {
-        taskNumber.text = currentTaskNumber.ToString("0");
-    }
     public void setTimeRemaining(float time)
     {
         this.timeRemaining = time;
@@ -101,6 +110,77 @@ public class GControl : MonoBehaviour
     {
         endGamePopupText.text = "Spy Wins \nSpy completed their tasks";
         endGamePopupShow();
+    }
+
+    public void setTaskComplete(int taskID)
+    {
+        int index = 0;
+        for (int i = 0; i <= gameTaskList.Count; i++)
+        {
+            if (taskID == taskIDList[i])
+            {
+                index = i;
+                break;
+            }
+        }
+        gameTaskList[index].taskCompleted = true;
+        updateGameTaskList(index);
+    }
+
+    public void randomiseTasks()
+    {
+        //gameTaskList = shuffleTasks.randomiseTask(TOTAL_TASK_NUMBER);
+
+        for (int i = 0; i <= gameTaskList.Count; i++)
+        {
+            taskIDList[i] = gameTaskList[i].taskID;
+        }
+    }
+
+    public void randomiseTask(int max)
+    {
+        List<Task> taskList = database.getTaskList();
+        int index;
+        int counter = taskList.Count;
+        for (int i = 0; i < max; i++)
+        {
+            index = UnityEngine.Random.Range(1, counter);
+            gameTaskList.Add(taskList[index]);
+            taskList.RemoveAt(index);
+            counter--;
+        }
+
+        for (int i = 0; i <= gameTaskList.Count; i++)
+        {
+            taskIDList[i] = gameTaskList[i].taskID;
+        }
+    }
+
+    public void createTaskList()
+    {
+        gameTaskListText.Add(textTask1);
+        gameTaskListText.Add(textTask2);
+        gameTaskListText.Add(textTask3);
+        gameTaskListText.Add(textTask4);
+        gameTaskListText.Add(textTask5);
+        gameTaskListText.Add(textTask6);
+        gameTaskListText.Add(textTask7);
+        gameTaskListText.Add(textTask8);
+        gameTaskListText.Add(textTask9);
+        gameTaskListText.Add(textTask10);
+    }
+
+    public void assignTaskList()
+    {
+        for (int i = 0; i <= gameTaskList.Count; i++)
+        {
+            gameTaskListText[i].text = gameTaskList[i].location.ToString() + ":" + gameTaskList[i].name.ToString();
+        }
+    }
+
+    public void updateGameTaskList(int index)
+    {
+        gameTaskListText[index].color = Color.red;
     }
 
 }

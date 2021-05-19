@@ -28,7 +28,6 @@ public class SpyInteraction : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("GameController");
         gControl = GameObject.FindGameObjectWithTag("GameController").GetComponent<GControl>();
         database = gameController.GetComponent<TaskDatabase>();
-
         taskLayerMask = LayerMask.GetMask("TaskLayer");
     }
 
@@ -45,7 +44,7 @@ public class SpyInteraction : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 if (hitTaskID == 0) {
-                    //
+                    //not sus animation here
                 }
                 else {
                 totalTime = database.tasks[hitTaskID].completeTime;
@@ -69,7 +68,7 @@ public class SpyInteraction : MonoBehaviour
             {
                 DisableCircle();
                 circleFill = 0;
-                gControl.AddTaskNumber();
+                gControl.setTaskComplete(hitTaskID);
             }
         }
 
