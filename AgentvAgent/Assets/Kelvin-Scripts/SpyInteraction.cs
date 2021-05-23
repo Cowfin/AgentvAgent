@@ -23,12 +23,15 @@ public class SpyInteraction : MonoBehaviour
     float totalTime, timerTime, circleFill;
     bool timerStatus;
 
+    List<Task> taskList = new List<Task>();
+
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController");
         gControl = GameObject.FindGameObjectWithTag("GameController").GetComponent<GControl>();
         database = gameController.GetComponent<TaskDatabase>();
         taskLayerMask = LayerMask.GetMask("TaskLayer");
+        taskList = database.getTaskList();
     }
 
     void Update()
@@ -40,14 +43,16 @@ public class SpyInteraction : MonoBehaviour
         {
             EnableTaskPopUp();
             hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
-            taskText.text = database.tasks[hitTaskID].name;
+            //taskText.text = database.tasks[hitTaskID].name;
+            taskText.text = taskList[hitTaskID].name;
             if (Input.GetKey(KeyCode.E))
             {
                 if (hitTaskID == 0) {
                     //not sus animation here
                 }
                 else {
-                totalTime = database.tasks[hitTaskID].completeTime;
+                //totalTime = database.tasks[hitTaskID].completeTime;
+                totalTime = taskList[hitTaskID].completeTime;
                 TimerOn();
                 }
             }
@@ -68,7 +73,7 @@ public class SpyInteraction : MonoBehaviour
             {
                 DisableCircle();
                 circleFill = 0;
-                gControl.setTaskComplete(hitTaskID);
+                //gControl.setTaskComplete(hitTaskID);
             }
         }
 

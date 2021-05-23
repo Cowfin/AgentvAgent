@@ -8,6 +8,7 @@ public class TaskDatabase : MonoBehaviour
 
     public List<Task> getTaskList()
     {
-        return tasks;
+        List<Task> tl = tasks;
+        return tl;
     }
 }

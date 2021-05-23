@@ -35,8 +35,7 @@ public class GControl : MonoBehaviour
 
     void Start()
     {
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        database = gameController.GetComponent<TaskDatabase>();
+        database = gameObject.GetComponent<TaskDatabase>();
         createTaskList();
         randomiseTask(TOTAL_TASK_NUMBER);
         assignTaskList();
@@ -127,33 +126,43 @@ public class GControl : MonoBehaviour
         updateGameTaskList(index);
     }
 
-    public void randomiseTasks()
-    {
-        //gameTaskList = shuffleTasks.randomiseTask(TOTAL_TASK_NUMBER);
-
-        for (int i = 0; i <= gameTaskList.Count; i++)
-        {
-            taskIDList[i] = gameTaskList[i].taskID;
-        }
-    }
-
     public void randomiseTask(int max)
     {
-        List<Task> taskList = database.getTaskList();
+        /*List<Task> taskListTemp = database.getTaskList();
+        //var tl = database.getTaskList();
         int index;
-        int counter = taskList.Count;
+        int counter = taskListTemp.Count;
         for (int i = 0; i < max; i++)
         {
             index = UnityEngine.Random.Range(1, counter);
-            gameTaskList.Add(taskList[index]);
-            taskList.RemoveAt(index);
+            Debug.Log("Random: " + index);
+            //gameTaskList.Add(taskListTemp[index]);
+            //gameTaskList.Add(tl[index]);
+            //taskListTemp.RemoveAt(index);
+            //tl.RemoveAt(index);
             counter--;
+        }*/
+
+        //why not remove instead of add? O_O
+        gameTaskList = database.getTaskList();
+        int index;
+        Debug.Log("gtl: " + gameTaskList.Count);
+        gameTaskList.RemoveAt(0);
+        while(gameTaskList.Count > max)
+        {
+            index = UnityEngine.Random.Range(0, gameTaskList.Count - 1);
+            Debug.Log("Random: " + index);
+            //taskList.RemoveAt(UnityEngine.Random.Range(0, taskList.Count));
+            gameTaskList.RemoveAt(index);
         }
 
-        for (int i = 0; i <= gameTaskList.Count; i++)
+        Debug.Log("gtl: " + gameTaskList.Count);
+
+        /*for (int i = 0; i < gameTaskList.Count; i++)
         {
-            taskIDList[i] = gameTaskList[i].taskID;
-        }
+            //taskIDList[i] = gameTaskList[i].taskID;
+            //Debug.Log("TaskID List: " + gameTaskList[i].taskID);
+        }*/
     }
 
     public void createTaskList()
