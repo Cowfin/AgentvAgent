@@ -6,13 +6,11 @@ using UnityEngine.UI;
 public class GControl : MonoBehaviour
 {
     int currentTaskNumber;
-    GameController gameController;
 
     [SerializeField] Text taskNumber;
 
     void Start()
     {
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         currentTaskNumber = 0;
         UpdateTaskNumber();
     }

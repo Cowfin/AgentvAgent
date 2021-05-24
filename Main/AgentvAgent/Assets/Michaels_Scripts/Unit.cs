@@ -124,7 +124,6 @@ public class Unit : MonoBehaviour
                     {
                         break;
                     }
-                    //int gridWeight = PathRequestManager.requestNode(currentNode).movementWeight;
                     if (path[targetIndex + i].movementWeight > weights[targetIndex + i] + weight)
                     {
                         changingPath = true;

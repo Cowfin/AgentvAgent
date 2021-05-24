@@ -1,13 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HunterInteraction : MonoBehaviour
 {
     [SerializeField] Camera cam;
+    [SerializeField] Image tunnelVision;
+    [SerializeField] Image tunnelVisionGrey;
+    [SerializeField] AudioSource gunShot;
+    [SerializeField] AudioSource crowdScream;
 
     float interactRange = 1000f;
     int taskLayerMask;
+
+    bool obscureVision = true;
+    bool fadeIn;
+    bool fadeOut;
+
+    float fadeInTime = 0.1f;
+    float holdTime = 10f;
+    float fadeOutTime = 3f;
+    float fadeTimer = 0f;
+
+    Color newTunnelVision;
+    Color newTunnelVisionGrey;
 
     GameObject gameController;
     TaskDatabase database;
@@ -29,29 +46,74 @@ public class HunterInteraction : MonoBehaviour
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
-        if (Input.GetMouseButtonDown(1)) // On right click
+        if (obscureVision == true)
+        {
+            fadeTimer += Time.deltaTime;
+            if (fadeIn)
+            {
+                tunnelVision.color = new Color(tunnelVision.color.r, tunnelVision.color.g, tunnelVision.color.b, fadeTimer / fadeInTime);
+                tunnelVisionGrey.color = new Color(tunnelVisionGrey.color.r, tunnelVisionGrey.color.g, tunnelVisionGrey.color.b, 0.6f * (fadeTimer / fadeInTime));
+
+                if (fadeTimer >= fadeInTime)
+                {
+                    fadeIn = false;
+                    fadeTimer = 0;
+                }
+            }
+            else
+            {
+                if (fadeOut == false)
+                {
+                    if (fadeTimer >= holdTime)
+                    {
+                        fadeOut = true;
+                        fadeTimer = 0;
+                    }
+                }
+                else
+                {
+                    tunnelVision.color = new Color(tunnelVision.color.r, tunnelVision.color.g, tunnelVision.color.b, tunnelVision.color.a - (fadeTimer / fadeInTime));
+                    tunnelVisionGrey.color = new Color(tunnelVisionGrey.color.r, tunnelVisionGrey.color.g, tunnelVisionGrey.color.b, tunnelVisionGrey.color.a - (0.6f * (fadeTimer / fadeInTime)));
+
+                    if (fadeTimer >= fadeOutTime)
+                    {
+                        fadeOut = false;
+                        fadeTimer = 0;
+                        obscureVision = false;
+                    }
+                }
+            }
+        }
+
+        if (Input.GetMouseButton(1)) // On right click
         {
             Debug.Log("Hunter Aiming");
             //Aiming
-
-            if (Physics.Raycast(ray, out hit, interactRange, taskLayerMask))
+            if (Input.GetMouseButtonDown(0))
             {
-                if (Input.GetMouseButton(0))
-                {
-                    //if player hit then kill player
-                } else
-                {
-                    // shoot but no one dies
-                }
-                
+                gunShot.Play();
+                crowdScream.Play();
+                //if player hit then kill player
+
+                resetTunnelVision();
+                obscureVision = true;
+                Debug.Log("Hunter Shot");
+                // shoot but no one dies
             }
-            
+
+            /*if (Physics.Raycast(ray, out hit, interactRange, taskLayerMask))
+            {
+
+            }*/
         }
-
-       
-
-
-
     }
+    void resetTunnelVision()
+    {
+        tunnelVision.color = new Color(tunnelVision.color.r, tunnelVision.color.g, tunnelVision.color.b, 0);
+        tunnelVisionGrey.color = new Color(tunnelVisionGrey.color.r, tunnelVisionGrey.color.g, tunnelVisionGrey.color.b, 0);
 
+        fadeIn = true;
+        fadeOut = false;
+        fadeTimer = 0f;
+    }
 }
