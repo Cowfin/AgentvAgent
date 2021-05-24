@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366802, g: 0.48427397, b: 0.5645256, a: 1}
+  m_IndirectSpecularColor: {r: 0.43668008, g: 0.48427385, b: 0.5645251, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -952,7 +952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 120487853}
   m_Layer: 0
-  m_Name: TaskList
+  m_Name: TaskObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11080,78 +11080,91 @@ MonoBehaviour:
     taskObject: {fileID: 0}
     completeTime: 0
     taskCompleted: 0
+    gameTask: 0
   - taskID: 1
-    name: Crack The Safe
+    name: one
     location: 1
     taskObject: {fileID: 1379806191}
     completeTime: 5
     taskCompleted: 0
+    gameTask: 0
   - taskID: 2
-    name: Spike The Drink
+    name: two
     location: 2
     taskObject: {fileID: 655095543}
     completeTime: 2
     taskCompleted: 0
+    gameTask: 0
   - taskID: 3
-    name: Hide Camera
+    name: three
     location: 3
     taskObject: {fileID: 1373549165}
     completeTime: 2
     taskCompleted: 0
+    gameTask: 0
   - taskID: 4
-    name: Plant Bug On VIP
+    name: four
     location: 4
     taskObject: {fileID: 328845316}
     completeTime: 1
     taskCompleted: 0
+    gameTask: 0
   - taskID: 5
-    name: Steal Book
+    name: five
     location: 5
     taskObject: {fileID: 443607599}
     completeTime: 1
     taskCompleted: 0
+    gameTask: 0
   - taskID: 6
-    name: Sabotage Guest List
+    name: six
     location: 6
     taskObject: {fileID: 40928870}
     completeTime: 1
     taskCompleted: 0
+    gameTask: 0
   - taskID: 7
-    name: Sabotage Guest List
+    name: seven
     location: 7
     taskObject: {fileID: 274046454}
     completeTime: 1
     taskCompleted: 0
+    gameTask: 0
   - taskID: 8
-    name: Sabotage Guest List
+    name: eight
     location: 8
     taskObject: {fileID: 1287157165}
     completeTime: 1
     taskCompleted: 0
+    gameTask: 0
   - taskID: 9
-    name: Sabotage Guest List
+    name: nine
     location: 9
     taskObject: {fileID: 490897658}
     completeTime: 1
     taskCompleted: 0
+    gameTask: 0
   - taskID: 10
-    name: Sabotage Guest List
+    name: ten
     location: 10
     taskObject: {fileID: 1759338967}
     completeTime: 1
     taskCompleted: 0
+    gameTask: 0
   - taskID: 11
-    name: Sabotage Guest List
+    name: eleven
     location: 11
     taskObject: {fileID: 753296264}
     completeTime: 1
     taskCompleted: 0
+    gameTask: 0
   - taskID: 12
-    name: Sabotage Guest List
-    location: 1212
+    name: twelve
+    location: 12
     taskObject: {fileID: 1547326428}
     completeTime: 1
     taskCompleted: 0
+    gameTask: 0
 --- !u!4 &1524526102
 Transform:
   m_ObjectHideFlags: 0
@@ -11214,7 +11227,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524526100}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b8b5c8cb10700a4d8e4e3d97d2d59da, type: 3}
   m_Name: 
@@ -16218,7 +16231,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027834751}
-  m_LocalRotation: {x: 0.08006832, y: -0.000000017151136, z: 0.0000000013776859, w: 0.9967894}
+  m_LocalRotation: {x: 0.08006832, y: 0.000000017151143, z: -0.0000000013776864, w: 0.9967894}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

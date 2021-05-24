@@ -17,4 +17,5 @@ public class Task {
 
     public bool taskCompleted;
 
+    public bool gameTask;
 }

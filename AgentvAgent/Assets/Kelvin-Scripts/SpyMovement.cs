@@ -24,7 +24,6 @@ public class SpyMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal"); //If D/Right = 1, if A/Left = -1
@@ -51,11 +50,7 @@ public class SpyMovement : MonoBehaviour
                 oldNode = currentNode;
             }
         }
-        else
-        {
-            //PLAYER IS IDLE
-        }
-
+       
     }
 
     public void OnNodeFound(Node node, bool conversionSuccessful)

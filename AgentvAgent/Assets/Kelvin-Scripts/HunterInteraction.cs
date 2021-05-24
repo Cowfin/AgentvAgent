@@ -13,8 +13,6 @@ public class HunterInteraction : MonoBehaviour
     TaskDatabase database;
     GControl gControl;
 
-
-
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController");

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GControl : MonoBehaviour
 {
-    GameController gameController;
     TaskDatabase database;
     ShuffleTasks shuffleTasks;
 
@@ -17,7 +16,8 @@ public class GControl : MonoBehaviour
     [SerializeField] Text endGamePopupText;
 
     private static int TOTAL_TASK_NUMBER = 10;
-    private int[] taskIDList;
+    private static int NUMBER_TASKS_TO_COMPLETE = 6;
+    private int[] taskIDList = new int[TOTAL_TASK_NUMBER]; //use this for comparing task ids
     private List<Task> gameTaskList = new List<Task>();
     private List<Text> gameTaskListText = new List<Text>();
 
@@ -36,13 +36,14 @@ public class GControl : MonoBehaviour
     void Start()
     {
         database = gameObject.GetComponent<TaskDatabase>();
+        endGamePopupHide();
         createTaskList();
         randomiseTask(TOTAL_TASK_NUMBER);
         assignTaskList();
-        setTimeRemaining(10);
+        updateDatabase();
+        setTimeRemaining(100);
         startTime();
         updateTime();
-        endGamePopupHide();
     }
 
     void Update()
@@ -114,55 +115,27 @@ public class GControl : MonoBehaviour
     public void setTaskComplete(int taskID)
     {
         int index = 0;
-        for (int i = 0; i <= gameTaskList.Count; i++)
+        for (int i = 0; i < gameTaskList.Count; i++)
         {
-            if (taskID == taskIDList[i])
+            if (taskID == (gameTaskList[i].taskID))
             {
                 index = i;
                 break;
             }
         }
         gameTaskList[index].taskCompleted = true;
-        updateGameTaskList(index);
+        gameTaskListText[index].color = Color.red;
     }
 
     public void randomiseTask(int max)
     {
-        /*List<Task> taskListTemp = database.getTaskList();
-        //var tl = database.getTaskList();
-        int index;
-        int counter = taskListTemp.Count;
-        for (int i = 0; i < max; i++)
-        {
-            index = UnityEngine.Random.Range(1, counter);
-            Debug.Log("Random: " + index);
-            //gameTaskList.Add(taskListTemp[index]);
-            //gameTaskList.Add(tl[index]);
-            //taskListTemp.RemoveAt(index);
-            //tl.RemoveAt(index);
-            counter--;
-        }*/
-
-        //why not remove instead of add? O_O
         gameTaskList = database.getTaskList();
-        int index;
-        Debug.Log("gtl: " + gameTaskList.Count);
         gameTaskList.RemoveAt(0);
         while(gameTaskList.Count > max)
         {
-            index = UnityEngine.Random.Range(0, gameTaskList.Count - 1);
-            Debug.Log("Random: " + index);
-            //taskList.RemoveAt(UnityEngine.Random.Range(0, taskList.Count));
-            gameTaskList.RemoveAt(index);
+            gameTaskList.RemoveAt(UnityEngine.Random.Range(0, gameTaskList.Count));
         }
 
-        Debug.Log("gtl: " + gameTaskList.Count);
-
-        /*for (int i = 0; i < gameTaskList.Count; i++)
-        {
-            //taskIDList[i] = gameTaskList[i].taskID;
-            //Debug.Log("TaskID List: " + gameTaskList[i].taskID);
-        }*/
     }
 
     public void createTaskList()
@@ -181,15 +154,29 @@ public class GControl : MonoBehaviour
 
     public void assignTaskList()
     {
-        for (int i = 0; i <= gameTaskList.Count; i++)
+        for (int i = 0; i < gameTaskList.Count; i++)
         {
             gameTaskListText[i].text = gameTaskList[i].location.ToString() + ":" + gameTaskList[i].name.ToString();
         }
     }
 
-    public void updateGameTaskList(int index)
+    public void updateDatabase()
     {
-        gameTaskListText[index].color = Color.red;
+        for(int i = 0; i < gameTaskList.Count; i++)
+        {
+            for(int j = 0; j < database.tasks.Count; j++)
+            {
+                if(gameTaskList[i].taskID == database.tasks[j].taskID)
+                {
+                    database.tasks[j].gameTask = true;                    
+                }
+            }           
+        }
+    }
+
+    public bool checkSpyTaskWin()
+    {
+        return (spyTaskCompleted == NUMBER_TASKS_TO_COMPLETE);
     }
 
 }

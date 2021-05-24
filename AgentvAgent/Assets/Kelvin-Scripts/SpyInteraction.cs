@@ -41,29 +41,26 @@ public class SpyInteraction : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactRange, taskLayerMask))
         {
-            EnableTaskPopUp();
             hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
-            //taskText.text = database.tasks[hitTaskID].name;
-            taskText.text = taskList[hitTaskID].name;
-            if (Input.GetKey(KeyCode.E))
-            {
-                if (hitTaskID == 0) {
-                    //not sus animation here
+            taskText.text = database.tasks[hitTaskID].name;
+            EnableTaskPopUp();
+            //if (database.tasks[hitTaskID].gameTask == true) {
+                
+                
+                if (Input.GetKey(KeyCode.E))
+                {
+                    totalTime = database.tasks[hitTaskID].completeTime;
+                    //totalTime = taskList[hitTaskID].completeTime;
+                    TimerOn();
                 }
-                else {
-                //totalTime = database.tasks[hitTaskID].completeTime;
-                totalTime = taskList[hitTaskID].completeTime;
-                TimerOn();
+                else
+                {
+                    DisableTaskPopUp();
+                    TimerOff();
                 }
-            }
+            //}
         }
-        else
-        {
-            DisableTaskPopUp();
-            TimerOff();
-        }
-
-
+            
         if (timerStatus)
         {
             timerTime += Time.deltaTime;
@@ -73,13 +70,12 @@ public class SpyInteraction : MonoBehaviour
             {
                 DisableCircle();
                 circleFill = 0;
-                //gControl.setTaskComplete(hitTaskID);
+                gControl.setTaskComplete(hitTaskID);
             }
         }
 
     }
-
-
+    
     void EnableTaskPopUp()
     {
         taskPopup.gameObject.SetActive(true);
