@@ -44,20 +44,18 @@ public class SpyInteraction : MonoBehaviour
             hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
             taskText.text = database.tasks[hitTaskID].name;
             EnableTaskPopUp();
-            //if (database.tasks[hitTaskID].gameTask == true) {
-                
-                
-                if (Input.GetKey(KeyCode.E))
-                {
-                    totalTime = database.tasks[hitTaskID].completeTime;
-                    //totalTime = taskList[hitTaskID].completeTime;
-                    TimerOn();
-                }
-                else
-                {
-                    DisableTaskPopUp();
-                    TimerOff();
-                }
+            //if (database.tasks[hitTaskID].gameTask) {
+            if (Input.GetKey(KeyCode.E))
+            {
+                totalTime = database.tasks[hitTaskID].completeTime;
+                //totalTime = taskList[hitTaskID].completeTime;
+                TimerOn();
+            }
+            else
+            {
+                DisableTaskPopUp();
+                TimerOff();
+            }
             //}
         }
             

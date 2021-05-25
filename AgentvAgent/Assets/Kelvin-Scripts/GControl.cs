@@ -31,11 +31,13 @@ public class GControl : MonoBehaviour
     [SerializeField] Text textTask8;
     [SerializeField] Text textTask9;
     [SerializeField] Text textTask10;
-    
+
+    private int spyTaskCompleted;
 
     void Start()
     {
         database = gameObject.GetComponent<TaskDatabase>();
+        spyTaskCompleted = 0;
         endGamePopupHide();
         createTaskList();
         randomiseTask(TOTAL_TASK_NUMBER);
@@ -125,6 +127,8 @@ public class GControl : MonoBehaviour
         }
         gameTaskList[index].taskCompleted = true;
         gameTaskListText[index].color = Color.red;
+        spyTaskCompleted++;
+        checkSpyTaskWin();
     }
 
     public void randomiseTask(int max)

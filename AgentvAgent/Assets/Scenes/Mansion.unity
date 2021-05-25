@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43668008, g: 0.48427385, b: 0.5645251, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366802, g: 0.48427397, b: 0.5645256, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11051,9 +11051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1524526102}
   - component: {fileID: 1524526101}
-  - component: {fileID: 1524526103}
   - component: {fileID: 1524526104}
-  - component: {fileID: 1524526105}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -11179,22 +11177,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1524526103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524526100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb56c0459c9730f44941734d492ad5dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tasksCompleted: 000000000000000000000000
-  totalTasks:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &1524526104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11220,18 +11202,6 @@ MonoBehaviour:
   textTask8: {fileID: 1093220924}
   textTask9: {fileID: 1737748433}
   textTask10: {fileID: 1383820492}
---- !u!114 &1524526105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524526100}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8b5c8cb10700a4d8e4e3d97d2d59da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1525623601
 GameObject:
   m_ObjectHideFlags: 0
@@ -16231,7 +16201,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027834751}
-  m_LocalRotation: {x: 0.08006832, y: 0.000000017151143, z: -0.0000000013776864, w: 0.9967894}
+  m_LocalRotation: {x: 0.08006832, y: -0.000000017151136, z: 0.0000000013776859, w: 0.9967894}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
