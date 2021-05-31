@@ -38,10 +38,10 @@ public class GControl : MonoBehaviour
         database = gameObject.GetComponent<TaskDatabase>();
         spyTaskCompleted = 0;
         endGamePopupHide();
-        /*createTaskList();
+        createTaskList();
         randomiseTask(TOTAL_TASK_NUMBER);
         assignTaskList();
-        updateDatabase();*/
+        updateDatabase();
         setTimeRemaining(100);
         startTime();
         updateTime();
