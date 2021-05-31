@@ -8,8 +8,11 @@ public class HunterInteraction : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] Image tunnelVision;
     [SerializeField] Image tunnelVisionGrey;
+    [SerializeField] Image exclamationMark;
+    [SerializeField] Image crossIcon;
     [SerializeField] AudioSource gunShot;
     [SerializeField] AudioSource crowdScream;
+    [SerializeField] GameObject abilityUITarget;
 
     float interactRange = 1000f;
     int taskLayerMask;
@@ -23,10 +26,16 @@ public class HunterInteraction : MonoBehaviour
     float fadeOutTime = 3f;
     float fadeTimer = 0f;
 
+    float abilityIconDisplayTime = 3f;
+    float abilityIconTimer = 0f;
+
+    Color newTunnelVision;
+    Color newTunnelVisionGrey;
+
     GameObject gameController;
     TaskDatabase database;
     GControl gControl;
-
+    GameObject spy;
 
 
     void Start()
@@ -34,7 +43,7 @@ public class HunterInteraction : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("GameController");
         gControl = GameObject.FindGameObjectWithTag("GameController").GetComponent<GControl>();
         database = gameController.GetComponent<TaskDatabase>();
-
+        spy = GameObject.FindGameObjectWithTag("Spy");
         taskLayerMask = LayerMask.GetMask("TaskLayer");
     }
 
@@ -42,22 +51,27 @@ public class HunterInteraction : MonoBehaviour
     {
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
+        
+        if (abilityIconTimer >= 0)
+        {
+            Vector3 iconPos = Camera.current.WorldToScreenPoint(abilityUITarget.transform.position);
+            exclamationMark.transform.position = iconPos;
+            crossIcon.transform.position = iconPos;
+            abilityIconTimer -= Time.deltaTime;
+        }
+        else 
+        {
+            exclamationMark.enabled = false;
+            crossIcon.enabled = false;
+        }
 
         if (obscureVision == true)
         {
             fadeTimer += Time.deltaTime;
             if (fadeIn)
             {
-
-                Color newTunnelVision = tunnelVision.color;
-                newTunnelVision.a = fadeTimer / fadeInTime;
-                tunnelVision.color = newTunnelVision;
-
-                Debug.Log("Fading in, alpha : " + newTunnelVision.a);
-
-                Color newTunnelVisionGrey = tunnelVisionGrey.color;
-                newTunnelVisionGrey.a = 0.6f * (fadeTimer / fadeInTime);
-                tunnelVisionGrey.color = newTunnelVisionGrey;
+                tunnelVision.color = new Color(tunnelVision.color.r, tunnelVision.color.g, tunnelVision.color.b, fadeTimer / fadeInTime);
+                tunnelVisionGrey.color = new Color(tunnelVisionGrey.color.r, tunnelVisionGrey.color.g, tunnelVisionGrey.color.b, 0.6f * (fadeTimer / fadeInTime));
 
                 if (fadeTimer >= fadeInTime)
                 {
@@ -77,13 +91,8 @@ public class HunterInteraction : MonoBehaviour
                 }
                 else
                 {
-                    Color newTunnelVision = tunnelVision.color;
-                    newTunnelVision.a -= fadeTimer / fadeOutTime;
-                    tunnelVision.color = newTunnelVision;
-
-                    Color newTunnelVisionGrey = tunnelVisionGrey.color;
-                    newTunnelVisionGrey.a -= 0.6f * (fadeTimer / fadeOutTime);
-                    tunnelVisionGrey.color = newTunnelVisionGrey;
+                    tunnelVision.color = new Color(tunnelVision.color.r, tunnelVision.color.g, tunnelVision.color.b, tunnelVision.color.a - (fadeTimer / fadeInTime));
+                    tunnelVisionGrey.color = new Color(tunnelVisionGrey.color.r, tunnelVisionGrey.color.g, tunnelVisionGrey.color.b, tunnelVisionGrey.color.a - (0.6f * (fadeTimer / fadeInTime)));
 
                     if (fadeTimer >= fadeOutTime)
                     {
@@ -111,21 +120,30 @@ public class HunterInteraction : MonoBehaviour
                 // shoot but no one dies
             }
 
-            if (Physics.Raycast(ray, out hit, interactRange, taskLayerMask))
+            /*if (Physics.Raycast(ray, out hit, interactRange, taskLayerMask))
             {
-                
+
+            }*/
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z)) 
+        {
+            bool spyClose = HunterAbility.CheckSpyInRange(7.5f, this.transform.position, spy.transform.position);
+            if (spyClose)
+            {
+                exclamationMark.enabled = true;
             }
+            else 
+            {
+                crossIcon.enabled = true;
+            }
+            abilityIconTimer = abilityIconDisplayTime;
         }
     }
     void resetTunnelVision()
     {
-        Color newTunnelVision = tunnelVision.color;
-        newTunnelVision.a = 0;
-        tunnelVision.color = newTunnelVision;
-
-        Color newTunnelVisionGrey = tunnelVisionGrey.color;
-        newTunnelVisionGrey.a = 0;
-        tunnelVisionGrey.color = newTunnelVisionGrey;
+        tunnelVision.color = new Color(tunnelVision.color.r, tunnelVision.color.g, tunnelVision.color.b, 0);
+        tunnelVisionGrey.color = new Color(tunnelVisionGrey.color.r, tunnelVisionGrey.color.g, tunnelVisionGrey.color.b, 0);
 
         fadeIn = true;
         fadeOut = false;

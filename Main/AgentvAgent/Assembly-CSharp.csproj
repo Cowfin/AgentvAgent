@@ -62,6 +62,7 @@
      <Compile Include="Assets\Kelvin-Scripts\Bin\TestCricle.cs" />
      <Compile Include="Assets\Kelvin-Scripts\Bin\ThirdPersonMovement.cs" />
      <Compile Include="Assets\Kelvin-Scripts\GControl.cs" />
+     <Compile Include="Assets\Kelvin-Scripts\HunterAbility.cs" />
      <Compile Include="Assets\Kelvin-Scripts\HunterInteraction.cs" />
      <Compile Include="Assets\Kelvin-Scripts\HunterMovement.cs" />
      <Compile Include="Assets\Kelvin-Scripts\SpyInteraction.cs" />
