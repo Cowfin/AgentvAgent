@@ -42,7 +42,7 @@ public class GControl : MonoBehaviour
         randomiseTask(TOTAL_TASK_NUMBER);
         assignTaskList();
         updateDatabase();
-        setTimeRemaining(100);
+        setTimeRemaining(240);
         startTime();
         updateTime();
     }
@@ -82,7 +82,14 @@ public class GControl : MonoBehaviour
 
     public void updateTime()
     {
-        timerText.text = ((int)timeRemaining / 60).ToString() + ":" + ((int)timeRemaining % 60).ToString();
+        int seconds = (int)timeRemaining % 60;
+        if (seconds < 10)
+        {
+            timerText.text = ((int)timeRemaining / 60).ToString() + ":0" + ((int)timeRemaining % 60).ToString();
+        } else
+        {
+            timerText.text = ((int)timeRemaining / 60).ToString() + ":" + ((int)timeRemaining % 60).ToString();
+        }
     }
 
     public void endGamePopupShow()
@@ -116,18 +123,21 @@ public class GControl : MonoBehaviour
     public void setTaskComplete(int taskID)
     {
         int index = 0;
-        for (int i = 0; i < gameTaskList.Count; i++)
+        for (int i = 0; i < taskIDList.Length; i++)
         {
-            if (taskID == (gameTaskList[i].taskID))
+            if (taskID == (taskIDList[i]))
             {
                 index = i;
                 break;
             }
         }
-        gameTaskList[index].taskCompleted = true;
+        database.tasks[taskIDList[index]].taskCompleted = true;
         gameTaskListText[index].color = Color.red;
         addTaskComplete();
-        checkSpyTaskWin();
+        if (checkSpyTaskWin())
+        {
+            endGameSpyTaskWin();
+        }
     }
 
     public void addTaskComplete()
@@ -137,13 +147,30 @@ public class GControl : MonoBehaviour
 
     public void randomiseTask(int max)
     {
-        gameTaskList = database.getTaskList();
-        gameTaskList.RemoveAt(0);
-        while (gameTaskList.Count > max)
+        int taskCount = database.getTaskList().Count;
+        int rand;
+        int counter = 0;
+        while(counter < max)
         {
-            gameTaskList.RemoveAt(UnityEngine.Random.Range(0, gameTaskList.Count));
+            rand = UnityEngine.Random.Range(1, taskCount);
+            if (arrayContains(taskIDList, rand)){
+                taskIDList[counter] = rand;
+                counter++;
+            }
         }
+        
+    }
 
+    public bool arrayContains(int[] arr, int check)
+    {
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] == check)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void createTaskList()
@@ -162,19 +189,29 @@ public class GControl : MonoBehaviour
 
     public void assignTaskList()
     {
-        for (int i = 0; i < gameTaskList.Count; i++)
+        //for (int i = 0; i < gameTaskList.Count; i++)
+        for (int i = 0; i < taskIDList.Length; i++)
         {
+            //gameTaskListText[i].text = gameTaskList[i].location.ToString() + ":" + gameTaskList[i].name.ToString();
+            gameTaskList.Add(database.tasks[taskIDList[i]]);
             gameTaskListText[i].text = gameTaskList[i].location.ToString() + ":" + gameTaskList[i].name.ToString();
         }
+    }
+    
+    public List<Task> getTaskList()
+    {
+        return gameTaskList;
     }
 
     public void updateDatabase()
     {
-        for (int i = 0; i < gameTaskList.Count; i++)
+        //for (int i = 0; i < gameTaskList.Count; i++)
+        for (int i = 0; i < taskIDList.Length; i++)
         {
             for (int j = 0; j < database.tasks.Count; j++)
             {
-                if (gameTaskList[i].taskID == database.tasks[j].taskID)
+                //if (gameTaskList[i].taskID == database.tasks[j].taskID)
+                if (taskIDList[i] == database.tasks[j].taskID)
                 {
                     database.tasks[j].gameTask = true;
                 }
@@ -185,5 +222,10 @@ public class GControl : MonoBehaviour
     public bool checkSpyTaskWin()
     {
         return (spyTaskCompleted >= NUMBER_TASKS_TO_COMPLETE);
+    }
+
+    public bool checkTimeWin()
+    {
+        return (timeRemaining <= 0);
     }
 }
