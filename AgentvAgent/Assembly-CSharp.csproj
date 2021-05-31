@@ -65,24 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Map&amp;Props\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
-    <Compile Include="Assets\Scripts\AI\GatheringSpot.cs" />
-    <Compile Include="Assets\Scripts\AI\Grid.cs" />
-    <Compile Include="Assets\Scripts\AI\Heap.cs" />
-    <Compile Include="Assets\Scripts\AI\Node.cs" />
-    <Compile Include="Assets\Scripts\AI\PathGrid.cs" />
-    <Compile Include="Assets\Scripts\AI\PathRequestManager.cs" />
-    <Compile Include="Assets\Scripts\AI\Pathfinding.cs" />
-    <Compile Include="Assets\Scripts\AI\Spot.cs" />
-    <Compile Include="Assets\Scripts\AI\Unit.cs" />
-    <Compile Include="Assets\Scripts\GControl.cs" />
-    <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\Player\HunterInteraction.cs" />
-    <Compile Include="Assets\Scripts\Player\HunterMovement.cs" />
-    <Compile Include="Assets\Scripts\Player\SpyInteraction.cs" />
-    <Compile Include="Assets\Scripts\Player\SpyMovement.cs" />
-    <Compile Include="Assets\Scripts\Task.cs" />
-    <Compile Include="Assets\Scripts\TaskDatabase.cs" />
-    <Compile Include="Assets\Scripts\TaskID.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -683,8 +665,23 @@
     <Reference Include="Cinemachine">
       <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProGrids">
+      <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids.Editor">
+      <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -704,32 +701,22 @@
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ProGrids">
-      <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder">
-      <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.Editor">
-      <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-      <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProGrids.Editor">
-      <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-      <HintPath>D:/Github/AgentvAgentGit/AgentvAgent/AgentvAgent/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-    </Reference>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Scripts.csproj">
+      <Project>{7D116D3E-703C-7F70-B6D6-46C79C53DC9D}</Project>
+      <Name>Scripts</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

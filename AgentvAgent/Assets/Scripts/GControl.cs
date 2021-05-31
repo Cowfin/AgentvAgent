@@ -16,7 +16,7 @@ public class GControl : MonoBehaviour
 
     private static int TOTAL_TASK_NUMBER = 10;
     private static int NUMBER_TASKS_TO_COMPLETE = 6;
-    private int[] taskIDList = new int[TOTAL_TASK_NUMBER]; //use this for comparing task ids
+    private int[] taskIDList = new int[TOTAL_TASK_NUMBER];
     private List<Task> gameTaskList = new List<Task>();
     private List<Text> gameTaskListText = new List<Text>();
 
@@ -126,8 +126,13 @@ public class GControl : MonoBehaviour
         }
         gameTaskList[index].taskCompleted = true;
         gameTaskListText[index].color = Color.red;
-        spyTaskCompleted++;
+        addTaskComplete();
         checkSpyTaskWin();
+    }
+
+    public void addTaskComplete()
+    {
+        spyTaskCompleted++;
     }
 
     public void randomiseTask(int max)
@@ -179,6 +184,6 @@ public class GControl : MonoBehaviour
 
     public bool checkSpyTaskWin()
     {
-        return (spyTaskCompleted == NUMBER_TASKS_TO_COMPLETE);
+        return (spyTaskCompleted >= NUMBER_TASKS_TO_COMPLETE);
     }
 }
