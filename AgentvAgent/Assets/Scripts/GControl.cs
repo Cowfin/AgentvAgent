@@ -1,7 +1,13 @@
-﻿using System.Collections;
+﻿/*
+ * GControl Class is the main controller of the game.
+ * It handles the game timer, tasks randomisation, task completion, and winning conditions.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GControl : MonoBehaviour
 {
@@ -33,6 +39,9 @@ public class GControl : MonoBehaviour
 
     private int spyTaskCompleted;
 
+    private bool transitionTimer;
+    private float transitionTime = 5;
+
     void Start()
     {
         database = gameObject.GetComponent<TaskDatabase>();
@@ -45,6 +54,8 @@ public class GControl : MonoBehaviour
         setTimeRemaining(240);
         startTime();
         updateTime();
+        transitionTimer = false;
+        transitionTime = 5;
     }
 
     void Update()
@@ -61,6 +72,17 @@ public class GControl : MonoBehaviour
                 stopTime();
                 endGameHunterTimerWin();
                 timeRemaining = -1;
+            }
+        }
+
+        if (transitionTimer)
+        {
+            if(transitionTime > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+            } else
+            {
+                SceneManager.LoadScene(0);
             }
         }
     }
@@ -95,6 +117,7 @@ public class GControl : MonoBehaviour
     public void endGamePopupShow()
     {
         endGamePopup.gameObject.SetActive(true);
+        transitionTimer = true;
     }
 
     public void endGamePopupHide()
@@ -189,10 +212,8 @@ public class GControl : MonoBehaviour
 
     public void assignTaskList()
     {
-        //for (int i = 0; i < gameTaskList.Count; i++)
         for (int i = 0; i < taskIDList.Length; i++)
         {
-            //gameTaskListText[i].text = gameTaskList[i].location.ToString() + ":" + gameTaskList[i].name.ToString();
             gameTaskList.Add(database.tasks[taskIDList[i]]);
             gameTaskListText[i].text = gameTaskList[i].location.ToString() + ":" + gameTaskList[i].name.ToString();
         }
@@ -205,12 +226,10 @@ public class GControl : MonoBehaviour
 
     public void updateDatabase()
     {
-        //for (int i = 0; i < gameTaskList.Count; i++)
         for (int i = 0; i < taskIDList.Length; i++)
         {
             for (int j = 0; j < database.tasks.Count; j++)
             {
-                //if (gameTaskList[i].taskID == database.tasks[j].taskID)
                 if (taskIDList[i] == database.tasks[j].taskID)
                 {
                     database.tasks[j].gameTask = true;

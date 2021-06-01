@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * The class handles all the spy interactions.
+ * It scans for a task and interacts with it.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,6 +41,7 @@ public class SpyInteraction : MonoBehaviour
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
+        // Scans hit object for the task layer and waits for the correct input key.
         if (Physics.Raycast(ray, out hit, interactRange, taskLayerMask))
         {       
             hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
@@ -49,7 +55,6 @@ public class SpyInteraction : MonoBehaviour
                     TimerOn();
                 }
             }
-            
         }
         else
         {
@@ -70,7 +75,6 @@ public class SpyInteraction : MonoBehaviour
                 gControl.setTaskComplete(hitTaskID);
             }
         }
-
     }
 
     public void EnableTaskPopUp()
