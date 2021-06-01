@@ -14,8 +14,10 @@ public class HunterInteraction : MonoBehaviour
     [SerializeField] AudioSource crowdScream;
     [SerializeField] GameObject abilityUITarget;
 
+
     float interactRange = 1000f;
     int taskLayerMask;
+    int spyLayerMask;
 
     bool obscureVision = true;
     bool fadeIn;
@@ -28,6 +30,7 @@ public class HunterInteraction : MonoBehaviour
 
     float abilityIconDisplayTime = 3f;
     float abilityIconTimer = 0f;
+    float gunCooldown = 10f;
 
     Color newTunnelVision;
     Color newTunnelVisionGrey;
@@ -45,6 +48,7 @@ public class HunterInteraction : MonoBehaviour
         database = gameController.GetComponent<TaskDatabase>();
         spy = GameObject.FindGameObjectWithTag("Spy");
         taskLayerMask = LayerMask.GetMask("TaskLayer");
+        spyLayerMask = LayerMask.GetMask("SpyLayer");
     }
 
     void Update()
@@ -103,30 +107,40 @@ public class HunterInteraction : MonoBehaviour
                 }
             }
         }
+        if(gunCooldown > 0)
+        {
+            gunCooldown -= Time.deltaTime;
+        }
 
         if (Input.GetMouseButton(1)) // On right click
-        {
-            Debug.Log("Hunter Aiming");
+        {           
             //Aiming
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && gunCooldown <= 0)
             {
                 gunShot.Play();
                 crowdScream.Play();
+
                 //if player hit then kill player
 
-                resetTunnelVision();
-                obscureVision = true;
-                Debug.Log("Hunter Shot");
-                // shoot but no one dies
-            }
+                if (Physics.Raycast(ray, out hit, interactRange, spyLayerMask))
+                {
+                    if (hit.collider.gameObject != null)
+                    {
+                        gControl.endGameHunterKillWin();
+                    }
+                    else
+                    {
+                        resetTunnelVision();
+                        obscureVision = true;
+                        // shoot but no one dies
+                        gunCooldown = 10f;
+                    }
 
-            /*if (Physics.Raycast(ray, out hit, interactRange,))
-            {
-            
-            }*/
+                }
+            }          
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        /*if (Input.GetKeyDown(KeyCode.Z))
         {
             bool spyClose = HunterAbility.CheckSpyInRange(7.5f, this.transform.position, spy.transform.position);
             if (spyClose)
@@ -138,7 +152,7 @@ public class HunterInteraction : MonoBehaviour
                 crossIcon.enabled = true;
             }
             abilityIconTimer = abilityIconDisplayTime;
-        }
+        }*/
     }
     void resetTunnelVision()
     {

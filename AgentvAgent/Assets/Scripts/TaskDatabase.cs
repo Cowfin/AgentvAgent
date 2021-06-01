@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * The class stores a list of tasks that can be passed around and updated.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

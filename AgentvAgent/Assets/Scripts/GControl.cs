@@ -1,7 +1,13 @@
-﻿using System.Collections;
+﻿/*
+ * GControl Class is the main controller of the game.
+ * It handles the game timer, tasks randomisation, task completion, and winning conditions.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GControl : MonoBehaviour
 {
@@ -33,6 +39,9 @@ public class GControl : MonoBehaviour
 
     private int spyTaskCompleted;
 
+    private bool transitionTimer;
+    private float transitionTime = 5;
+
     void Start()
     {
         database = gameObject.GetComponent<TaskDatabase>();
@@ -42,9 +51,11 @@ public class GControl : MonoBehaviour
         randomiseTask(TOTAL_TASK_NUMBER);
         assignTaskList();
         updateDatabase();
-        setTimeRemaining(100);
+        setTimeRemaining(240);
         startTime();
         updateTime();
+        transitionTimer = false;
+        transitionTime = 5;
     }
 
     void Update()
@@ -61,6 +72,17 @@ public class GControl : MonoBehaviour
                 stopTime();
                 endGameHunterTimerWin();
                 timeRemaining = -1;
+            }
+        }
+
+        if (transitionTimer)
+        {
+            if(transitionTime > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+            } else
+            {
+                SceneManager.LoadScene(0);
             }
         }
     }
@@ -82,12 +104,20 @@ public class GControl : MonoBehaviour
 
     public void updateTime()
     {
-        timerText.text = ((int)timeRemaining / 60).ToString() + ":" + ((int)timeRemaining % 60).ToString();
+        int seconds = (int)timeRemaining % 60;
+        if (seconds < 10)
+        {
+            timerText.text = ((int)timeRemaining / 60).ToString() + ":0" + ((int)timeRemaining % 60).ToString();
+        } else
+        {
+            timerText.text = ((int)timeRemaining / 60).ToString() + ":" + ((int)timeRemaining % 60).ToString();
+        }
     }
 
     public void endGamePopupShow()
     {
         endGamePopup.gameObject.SetActive(true);
+        transitionTimer = true;
     }
 
     public void endGamePopupHide()
@@ -116,18 +146,21 @@ public class GControl : MonoBehaviour
     public void setTaskComplete(int taskID)
     {
         int index = 0;
-        for (int i = 0; i < gameTaskList.Count; i++)
+        for (int i = 0; i < taskIDList.Length; i++)
         {
-            if (taskID == (gameTaskList[i].taskID))
+            if (taskID == (taskIDList[i]))
             {
                 index = i;
                 break;
             }
         }
-        gameTaskList[index].taskCompleted = true;
+        database.tasks[taskIDList[index]].taskCompleted = true;
         gameTaskListText[index].color = Color.red;
         addTaskComplete();
-        checkSpyTaskWin();
+        if (checkSpyTaskWin())
+        {
+            endGameSpyTaskWin();
+        }
     }
 
     public void addTaskComplete()
@@ -137,13 +170,30 @@ public class GControl : MonoBehaviour
 
     public void randomiseTask(int max)
     {
-        gameTaskList = database.getTaskList();
-        gameTaskList.RemoveAt(0);
-        while (gameTaskList.Count > max)
+        int taskCount = database.getTaskList().Count;
+        int rand;
+        int counter = 0;
+        while(counter < max)
         {
-            gameTaskList.RemoveAt(UnityEngine.Random.Range(0, gameTaskList.Count));
+            rand = UnityEngine.Random.Range(1, taskCount);
+            if (arrayContains(taskIDList, rand)){
+                taskIDList[counter] = rand;
+                counter++;
+            }
         }
+        
+    }
 
+    public bool arrayContains(int[] arr, int check)
+    {
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] == check)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void createTaskList()
@@ -162,19 +212,25 @@ public class GControl : MonoBehaviour
 
     public void assignTaskList()
     {
-        for (int i = 0; i < gameTaskList.Count; i++)
+        for (int i = 0; i < taskIDList.Length; i++)
         {
+            gameTaskList.Add(database.tasks[taskIDList[i]]);
             gameTaskListText[i].text = gameTaskList[i].location.ToString() + ":" + gameTaskList[i].name.ToString();
         }
+    }
+    
+    public List<Task> getTaskList()
+    {
+        return gameTaskList;
     }
 
     public void updateDatabase()
     {
-        for (int i = 0; i < gameTaskList.Count; i++)
+        for (int i = 0; i < taskIDList.Length; i++)
         {
             for (int j = 0; j < database.tasks.Count; j++)
             {
-                if (gameTaskList[i].taskID == database.tasks[j].taskID)
+                if (taskIDList[i] == database.tasks[j].taskID)
                 {
                     database.tasks[j].gameTask = true;
                 }
@@ -185,5 +241,10 @@ public class GControl : MonoBehaviour
     public bool checkSpyTaskWin()
     {
         return (spyTaskCompleted >= NUMBER_TASKS_TO_COMPLETE);
+    }
+
+    public bool checkTimeWin()
+    {
+        return (timeRemaining <= 0);
     }
 }

@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * The class handles all the spy interactions.
+ * It scans for a task and interacts with it.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +22,6 @@ public class SpyInteraction : MonoBehaviour
     TaskDatabase database;
     GControl gControl;
 
-
     int hitTaskID;
 
     float totalTime, timerTime, circleFill;
@@ -28,10 +32,8 @@ public class SpyInteraction : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("GameController");
         gControl = GameObject.FindGameObjectWithTag("GameController").GetComponent<GControl>();
         database = gameController.GetComponent<TaskDatabase>();
-
         taskLayerMask = LayerMask.GetMask("TaskLayer");
         DisableTaskPopUp();
-        DisableCircle();
     }
 
     void Update()
@@ -39,21 +41,18 @@ public class SpyInteraction : MonoBehaviour
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
+        // Scans hit object for the task layer and waits for the correct input key.
         if (Physics.Raycast(ray, out hit, interactRange, taskLayerMask))
-        {
-            EnableTaskPopUp();
+        {       
             hitTaskID = hit.transform.GetComponent<TaskID>().taskID;
-            taskText.text = database.tasks[hitTaskID].name;
-            if (Input.GetKey(KeyCode.E))
+            if ((database.tasks[hitTaskID].gameTask) && (database.tasks[hitTaskID].taskCompleted == false))
             {
-                if (hitTaskID == 0) {
-                    Debug.Log("Pressed E on for blend in animation");
-                }
-                else {
-                Debug.Log("Pressed E on task");
-                Debug.Log("Time got: " + database.tasks[hitTaskID].completeTime);
-                totalTime = database.tasks[hitTaskID].completeTime;
-                TimerOn();
+                EnableTaskPopUp();
+                taskText.text = database.tasks[hitTaskID].name;
+                if (Input.GetKey(KeyCode.E))
+                {
+                    totalTime = database.tasks[hitTaskID].completeTime;
+                    TimerOn();
                 }
             }
         }
@@ -63,7 +62,6 @@ public class SpyInteraction : MonoBehaviour
             TimerOff();
         }
 
-
         if (timerStatus)
         {
             timerTime += Time.deltaTime;
@@ -71,12 +69,12 @@ public class SpyInteraction : MonoBehaviour
             interactCircle.fillAmount = circleFill;
             if (circleFill >= 1)
             {
-                DisableCircle();
+                TimerOff();
+                DisableTaskPopUp();
                 circleFill = 0;
                 gControl.setTaskComplete(hitTaskID);
             }
         }
-
     }
 
     public void EnableTaskPopUp()
@@ -89,12 +87,6 @@ public class SpyInteraction : MonoBehaviour
     {
         taskPopup.gameObject.SetActive(false);
         interactCircle.gameObject.SetActive(false);
-    }
-
-    public void DisableCircle()
-    {
-        interactCircle.gameObject.SetActive(false);
-        TimerOff();
     }
 
     public void TimerOn()

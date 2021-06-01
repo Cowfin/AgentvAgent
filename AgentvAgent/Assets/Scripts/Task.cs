@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * This class is to store information for a task. 
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
